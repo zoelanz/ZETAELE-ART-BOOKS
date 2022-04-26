@@ -1,13 +1,16 @@
 
 import './App.css'
-import NavBar from './components/NavBar'
+import NavBar from './components/NavBar' // importo el archivo del navbar
+
 
 
 function App() {
 
   return (
+
+<NavBar /> // llamo a la funcion donde cree el navbar
     
-    <NavBar />
+
   )
 }
 

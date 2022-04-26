@@ -1,50 +1,37 @@
-
-
-
-function NavBar(){
-
-    return (
-<header>
-    <h1>ZETAELE|ART BOOKS</h1>
-    <div classname="navegador">
+function NavBar() {
+  return (
+    <header>
+      <h1>ZETAELE | Art Books</h1>
+      <div className="navegador">
         <nav>
-        <ul>
+          <ul>
             <li>
-            <a href="">TODOS LOS TíTULOS</a>
+              <a href="">TODOS LOS TíTULOS</a>
             </li>
             <li>
-            <a href="">MODA</a>
+              <a href="">MODA</a>
             </li>
             <li>
-            <a href="">FOTOGRAFíA</a>
+              <a href="">FOTOGRAFíA</a>
             </li>
             <li>
-            <a href="">ARTE</a>
+              <a href="">ARTE</a>
             </li>
             <li>
-            <a href="">ARQUITECTURA & DISEÑO</a>
+              <a href="">ARQUITECTURA & DISEÑO</a>
             </li>
-            {/* <li>
-            <i className=" iconoCart fa-brands fa-opencart" />
-            </li> */}
-        </ul>
-        <div id="containerMenu" className="barsHide iconos">
+             {/* <li>
+          <i className=" iconoCart fa-brands fa-opencart" />
+        </li>  */}
+          </ul>
+          {/* <div id="containerMenu" className="barsHide iconos">
             <i className="fa-solid fa-bars-staggered" aria-hideen="true" />
             <i className="fa-brands fa-opencart " />
-        </div>
+          </div> */}
         </nav>
-    </div>
-</header>
-        
+      </div>
+    </header>
+  );
+}
 
-    
-       
-    )
-  }
-
-    
-    
-    
-
-export default NavBar
-
+export default NavBar; // exporto el navbar
