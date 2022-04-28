@@ -1,3 +1,6 @@
+import CartWidget from "../CartWidget/CartWidget";
+
+
 function NavBar() {
   return (
     <header>
@@ -20,9 +23,7 @@ function NavBar() {
             <li>
               <a href="">ARQUITECTURA & DISEÑO</a>
             </li>
-             {/* <li>
-          <i className=" iconoCart fa-brands fa-opencart" />
-        </li>  */}
+            <CartWidget/> 
           </ul>
           {/* <div id="containerMenu" className="barsHide iconos">
             <i className="fa-solid fa-bars-staggered" aria-hideen="true" />
@@ -35,3 +36,6 @@ function NavBar() {
 }
 
 export default NavBar; // exporto el navbar
+
+
+

@@ -1,20 +1,29 @@
 
 import './App.css'
-import NavBar from './components/NavBar' // importo el archivo del navbar
-
+import NavBar from './components/NavBar/NavBar' // importo el archivo del navbar
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 
 function App() {
 
   return (
+// llamo a la funcion donde cree el navbar: SE LO LLAMA ELEMENTO
 
-<NavBar /> // llamo a la funcion donde cree el navbar
-    
+<div>
+
+<NavBar/> 
+
+<ItemListContainer greeting="Hola!"/> 
+
+
+
+</div>
+
 
   )
 }
 
-export default App
+export default App 
 
 
 
@@ -47,5 +56,14 @@ export default App
 
 // agregue edad al objeto 
 
-  
+// === === === === === === === === //
+
+// REACT CLASE 3
+
+
+// COMPONENTES: UN COMPONENTE ES UNA FUNCION QUE COMIENZA CON MAYUSCULA QUE RETORNA JSX.  
+
+// ELEMENTO: ES LA LLAMADA A LA FUNCION
+
+
 
