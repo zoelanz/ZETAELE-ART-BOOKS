@@ -2,7 +2,9 @@
 
 .greeting{
     text-align: center;
-    color: rebeccapurple ;
+    color: rgb(8, 8, 8) ;
     font-family: 'Questrial', sans-serif;
+    padding: 20px;
+    font-size: 60px;
 
 }

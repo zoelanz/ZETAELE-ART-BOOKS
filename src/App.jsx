@@ -14,6 +14,8 @@ function App() {
 <NavBar/> 
 
 <ItemListContainer greeting="Hola!"/> 
+<ItemListContainer greeting="Chau!"/> 
+
 
 
 
