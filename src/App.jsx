@@ -1,27 +1,20 @@
-
 import './App.css'
 import NavBar from './components/NavBar/NavBar' // importo el archivo del navbar
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-
+import ItemCount from './components/itemCount/itemCount'
 
 function App() {
 
+// llamo a la funcion donde cree el navbar: SE LO LLAMA ELEMENTO, llamo a las apis o fuentes externas
+
   return (
-// llamo a la funcion donde cree el navbar: SE LO LLAMA ELEMENTO
-
 <div>
-
 <NavBar/> 
-
-<ItemListContainer greeting="Hola!"/> 
-<ItemListContainer greeting="Chau!"/> 
-
-
-
-
+{/* <ItemListContainer greeting="Hola!"/>  */}
+<div className='containerGeneralContador'>
+<ItemCount stock={10} initial={1}/> 
 </div>
-
-
+</div>
   )
 }
 

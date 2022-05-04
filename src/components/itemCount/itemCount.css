@@ -1,0 +1,54 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Questrial&display=swap");
+
+.containerContadorTodo{
+    background-color: rgb(72, 78, 76);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 20px;
+    width: 30%;
+    padding: 20px 0 0 0 ;
+    border-radius: 10px;
+}
+
+.containerContador{
+
+    /* background-color: rgb(130, 100, 237); */
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 20px;
+}
+
+.containerBotonCarrito{
+    /* background-color: rgb(128, 36, 151); */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.boton{
+    padding: 5px;
+    border:none;
+    font-family: 'Questrial', sans-serif;
+    font-size: 14px;
+}
+
+.botonCarrito{
+    padding: 7px 15px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+.numero{
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    height: 27px;
+}
+
