@@ -1,9 +1,7 @@
 
-
 import "./itemCount.css"
 import { useState } from 'react'
 import { FaPlus, FaMinus } from 'react-icons/fa';
-
 
 function ItemCount({stock, initial, onAdd}){
 
@@ -15,9 +13,7 @@ function ItemCount({stock, initial, onAdd}){
         if(count<stock){
             setCount(count+1);
             // setDate(Date());
-
         }
-
     }
 
     function contadorMenos(){
@@ -27,17 +23,11 @@ function ItemCount({stock, initial, onAdd}){
         }
     }
 
-    function onAdd(){
-        alert(`${count} items agregados al carrito`)
-    }
-
 
 return(
 <div className="containerContadorTodo">
 
 <h1>STOCK DISPONIBLE: {stock}</h1>
-
-
 
 <div className="containerContador">
 
@@ -51,7 +41,7 @@ return(
 
 <div className="containerBotonCarrito">
 
-<button className="botonCarrito" onClick={onAdd}>AGREGAR AL CARRITO</button>
+<button className="botonCarrito" onClick={()=>onAdd(count)}>AGREGAR AL CARRITO</button>
 
 </div>
 
