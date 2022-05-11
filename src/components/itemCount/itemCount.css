@@ -1,21 +1,27 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Questrial&display=swap");
 
+
+h3{
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
 .containerContadorTodo{
-    background-color: rgb(72, 78, 76);
+    font-family: 'Questrial', sans-serif;
+    /* background-color: #9F3E42; */
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
-    margin-top: 20px;
-    width: 30%;
+    width: 100%;
     padding: 20px 0 0 0 ;
     border-radius: 10px;
+
 }
 
 .containerContador{
 
-    /* background-color: rgb(130, 100, 237); */
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -42,13 +48,76 @@
     padding: 7px 15px;
     border-radius: 5px;
     border: none;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 
 .numero{
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     width: 100%;
-    text-align: center;
     height: 27px;
+    font-weight: bold;
+    margin-bottom: 0;
+
 }
 
+
+/* From uiverse.io by @alexmaracinaru */
+.cta {
+    border: none;
+    background: none;
+   
+    
+
+   }
+   
+   .cta span {
+    font-family: 'Questrial', sans-serif;
+    padding-bottom: 7px;
+    font-size: 12px;
+    font-weight: bold;
+    padding-right: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+   }
+   
+   .cta svg {
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+   }
+   
+   .cta:hover svg {
+    transform: translateX(0);
+   }
+   
+   .cta:active svg {
+    transform: scale(0.9);
+   }
+   
+   .hover-underline-animation {
+    position: relative;
+    color: black;
+    padding-bottom: 20px;
+   }
+   
+   .hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    /* height: 1.5px; */
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+   }
+   
+   .cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+   }

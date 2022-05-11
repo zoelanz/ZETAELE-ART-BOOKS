@@ -1,8 +1,13 @@
+import { FaOpencart } from "react-icons/fa";
+
+
+
 function CartWidget(){
     return(
 
     <li>
-        <i className="iconoCart fa-brands fa-opencart" />
+        <FaOpencart />
+        
     </li>  
 
     )
