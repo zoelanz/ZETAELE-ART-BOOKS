@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Questrial&display=swap");
 
-.containerCard{
+.card{
     /* background-color: blueviolet; */
     border: none;
     padding: 20px;
+    margin: 0; 
+    /* background-color: brown; */
+
    
 }
 
