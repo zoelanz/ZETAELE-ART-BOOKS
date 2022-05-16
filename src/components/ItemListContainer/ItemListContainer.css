@@ -2,54 +2,72 @@
 
 
 
-/* From uiverse.io by @G4b413l */
-.line-wobble {
-    --uib-size: 200px;
-    --uib-speed: 1.6s;
-    --uib-color: black;
-    --uib-line-weight: 5px;
+/* From uiverse.io by @EmmaxPlay */
+.spinner {
     position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 600px;
+    margin-top: 180px;
+   }
+   
+   .spinner::before,
+   .spinner:after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+   }
+   
+   .spinner:before {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, #070707 0%, #5c5959 100%);
+    animation: spin8932 .5s infinite linear;
+   }
+   
+   .spinner:after {
+    width: 85%;
+    height: 85%;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   }
+   
+   @keyframes spin8932 {
+    to {
+     transform: rotate(360deg);
+    }
+   }
+
+   
+  /* From uiverse.io by @Jedi-hongbin */
+.buttonVolver {
+    font-family: 'Questrial', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
     display: flex;
+    height: 3em;
+    width: 100px;
     align-items: center;
     justify-content: center;
-    height: var(--uib-line-weight);
-    width: var(--uib-size);
-    border-radius: calc(var(--uib-line-weight) / 2);
-    overflow: hidden;
-    transform: translate3d(0, 0, 0);
-    margin-top: 250px;
-    margin-left: 550px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background:transparent;
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
    }
    
-   .line-wobble::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: var(--uib-color);
-    opacity: 0.1;
+  
+   
+   .buttonVolver:hover {
+    /* box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff; */
+    transform: translateX(-4px);
+    background-color: transparent;
+    color: black;
    }
-   
-   .line-wobble::after {
-    content: '';
-    height: 100%;
-    width: 100%;
-    border-radius: calc(var(--uib-line-weight) / 2);
-    animation: wobble var(--uib-speed) ease-in-out infinite;
-    transform: translateX(-90%);
-    background-color: var(--uib-color);
-   }
-   
-   @keyframes wobble {
-    0%,
-     100% {
-     transform: translateX(-90%);
-    }
-   
-    50% {
-     transform: translateX(90%);
-    }
-   }
-   

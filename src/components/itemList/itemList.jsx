@@ -8,7 +8,10 @@ function ItemList({productosFetch}) {
      {productosFetch.map((item)=>
       (
         <div className="containerCard" key={item.id}>
-          <Item nombre={item.nombre} img={item.img} stockDis={item.stock} />
+          <Item nombre={item.nombre} img={item.img} stockDis={item.stock}
+          
+          />
+          
         </div>
       
       ))}
