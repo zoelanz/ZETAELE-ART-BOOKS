@@ -59,7 +59,7 @@
 
 .item2 {
 
-    background-image: url(../../img/FOTOGRAFIA/dogs5.jpg);
+    background-image: url(../../img/PORTADA/dogs2.jpg);
     background-size: cover;
     grid-column: 2/4;
     grid-row: 1/2;
@@ -117,7 +117,7 @@
 
 .item7 {
 
-    background-image: url(../../img/FOTOGRAFIA/dogs3.jpg);
+    background-image: url(../../img/PORTADA/dogs1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     grid-column: 3/5;

@@ -5,10 +5,12 @@ import { Card } from "react-bootstrap";
 import ItemCount from "../itemCount/itemCount";
 import { Link } from "react-router-dom";
 
-function Item({ nombre, img, stockDis }) {
+function Item({ nombre, img, stockDis, itemId}) {
   function cart(count) {
     alert(`${count} items agregados al carrito`);
   }
+
+  
 
   return (
   
@@ -17,7 +19,7 @@ function Item({ nombre, img, stockDis }) {
       <Card.Img className="imagenCard" variant="top" src={img} />
       <Card.Body className="bodyCard">
         <Card.Title className="tituloCard">{nombre}</Card.Title>
-         <Link className="buttonDetail" to="/detalle">DETALLES</Link>
+         <Link className="buttonDetail" to={`/detalle/${itemId}`}>DETALLES</Link>
         <ItemCount stock={stockDis} initial={1} onAdd={cart} />
       </Card.Body>
     </Card>
