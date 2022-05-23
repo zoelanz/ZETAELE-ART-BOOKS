@@ -1,15 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
+import "./Navbar.css";
+
+
 
 function NavBar() {
 
   return (
     <header>
-      <h1>ZETAELE | Art Books</h1>
+       <NavLink activeclassname='currentCategory' className='text-white' to={`/tienda`}>
+       <h1>ZETAELE | Art Books</h1>
+       </NavLink>
       <div className="navegador">
         <nav>
           <ul>
-            <Link to="/tienda">
+            <Link to={`/tienda`}>
             <li>
               <a href="">TODOS LOS TíTULOS</a>
             </li>

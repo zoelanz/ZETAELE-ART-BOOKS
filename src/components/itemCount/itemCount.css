@@ -26,7 +26,7 @@ h3{
     justify-content: space-around;
     align-content: center;
     align-items: center;
-    width: 80%;
+    width: 70%;
     padding: 20px;
 }
 
@@ -35,6 +35,7 @@ h3{
     padding: 10px;
     display: flex;
     justify-content: center;
+    width: 70%;
 }
 
 .boton{
@@ -44,13 +45,15 @@ h3{
     font-size: 14px;
 }
 
-.botonCarrito{
+/* .botonCarrito{
     padding: 7px 15px;
     border-radius: 5px;
     border: none;
     font-size: 12px;
     font-weight: bold;
-}
+    background-color: aquamarine;
+    width: 100%;
+} */
 
 
 .numero{

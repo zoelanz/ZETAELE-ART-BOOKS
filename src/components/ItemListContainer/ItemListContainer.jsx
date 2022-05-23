@@ -320,6 +320,7 @@ function ItemListContainer() {
   useEffect(() => {
     if (categoria) {
       promesa
+        .then(setLoading(true))
         .then((respuesta) =>
           setProductos(respuesta.filter((item) => item.categoria === categoria))
         )
@@ -327,6 +328,7 @@ function ItemListContainer() {
         .finally(() => setLoading(false));
     } else {
       promesa
+        .then(setLoading(true))
         .then((respuesta) => setProductos(respuesta))
         .catch((err) => console.log(err))
         .finally(() => setLoading(false));
@@ -337,7 +339,7 @@ function ItemListContainer() {
   return (
     <div>
       {loading ? (
-        <div class="spinner"></div>
+        <div className="loader"></div>
       ) : (
         <>
           {categoria && (
@@ -353,8 +355,6 @@ function ItemListContainer() {
   );
 }
 
-<Link className="buttonDetail" to="/detalle">
-  DETALLES
-</Link>;
+
 
 export default ItemListContainer;

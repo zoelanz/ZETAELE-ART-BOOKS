@@ -4,9 +4,13 @@
     border: none;
     padding: 20px;
     margin: 0;
+    display: flex;
+    justify-content: center;
 
 
 }
+
+
 
 
 .tituloCard {
@@ -15,6 +19,14 @@
     font-weight: bold;
     text-align: center;
 
+
+}
+
+.textoPrice{
+    font-size: 17px;
+    font-family: 'Questrial', sans-serif;
+    font-weight: bold;
+    text-align: center;
 
 }
 
@@ -47,3 +59,4 @@ a.buttonDetail {
 a.buttonDetail:hover{
     letter-spacing: 4px;
 }
+
