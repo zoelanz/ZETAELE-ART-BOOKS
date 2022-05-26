@@ -1,10 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import "./Navbar.css";
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
 
 
 
 function NavBar() {
+
+  const {cantidadTotal } =
+  useContext(CartContext);
 
   return (
     <header>
@@ -40,13 +45,10 @@ function NavBar() {
               </li>
             </Link>
            <Link to={`/carrito`}>
+           
               <CartWidget/>
            </Link> 
           </ul>
-          {/* <div id="containerMenu" className="barsHide iconos">
-            <i className="fa-solid fa-bars-staggered" aria-hideen="true" />
-            <i className="fa-brands fa-opencart " />
-          </div> */}
         </nav>
       </div>
     </header>

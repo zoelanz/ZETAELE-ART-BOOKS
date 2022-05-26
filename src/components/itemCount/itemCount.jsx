@@ -2,7 +2,7 @@ import "./itemCount.css";
 import { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
-function ItemCount({ stock, initial, onAdd, handleInputType }) {
+function ItemCount({ stock, initial, onAdd }) {
   const [count, setCount] = useState(initial);
 
   function contadorMas() {
@@ -34,7 +34,7 @@ function ItemCount({ stock, initial, onAdd, handleInputType }) {
       </div>
 
       <div className="containerBotonCarrito">
-        <button className="cta" onClick={handleInputType}>
+        <button className="cta" onClick={()=>onAdd(count)} >
           <span className="hover-underline-animation"> AÑADIR AL CARRITO </span>
           <svg
             id="arrow-horizontal"

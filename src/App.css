@@ -7,10 +7,9 @@
   src: url(../fonts/ApercuPro-ExtraLight.ttf);
 }
 
-
-
 html {
   scroll-behavior: smooth;
+ 
 }
 
 *{
@@ -42,10 +41,6 @@ header {
 
  
 }
-
-
-
-
 
 
 

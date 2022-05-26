@@ -1,21 +1,35 @@
 import ItemCount from "../itemCount/itemCount";
-import "./ItemDetail.css";
-import { Carousel } from "react-bootstrap";
-import { useState } from "react";
 import InputCount from "../InputCount/InputCount";
 
+import "./ItemDetail.css";
+
+import { Carousel } from "react-bootstrap";
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
 
 
-function ItemDetail({ nombre, img, descripcion, precio, stockDis, onAdd }) {
+
+function ItemDetail({ product, onAdd, stockDis}) {
+  
   const [inputType, setInputType] = useState("ItemCount");
+  
+  
+  const {añadirAlCarrito,cartList} = useContext(CartContext)
+
+
 
   function handleInputType() {
     setInputType("InputCount");
   }
 
-  function cart(count) {
-    alert(`${count} items agregados al carrito`);
+  function onAdd (qty) {
+    alert(`${qty} items agregados al carrito`);
+    añadirAlCarrito({...product,quantity:qty})
+    handleInputType()
+   
   }
+
+  // console.log(cartList)
 
   return (
     <div className="cardDetail">
@@ -25,7 +39,7 @@ function ItemDetail({ nombre, img, descripcion, precio, stockDis, onAdd }) {
             <div className="containerImgCarrousel">
               <img
                 className="d-block w-100 imgCarrousel"
-                src={img}
+                src={product.img}
                 alt="First slide"
               />
             </div>
@@ -35,7 +49,7 @@ function ItemDetail({ nombre, img, descripcion, precio, stockDis, onAdd }) {
             <div className="containerImgCarrousel">
               <img
                 className="d-block w-100 imgCarrousel"
-                src={img}
+                src={product.img}
                 alt="Second slide"
               />
             </div>
@@ -45,7 +59,7 @@ function ItemDetail({ nombre, img, descripcion, precio, stockDis, onAdd }) {
             <div className="containerImgCarrousel">
               <img
                 className="d-block w-100 imgCarrousel"
-                src={img}
+                src={product.img}
                 alt="Third slide"
               />
             </div>
@@ -56,7 +70,7 @@ function ItemDetail({ nombre, img, descripcion, precio, stockDis, onAdd }) {
       <div className="container-fluid">
         <div className="wrapper row">
           <div className="details col-md-12">
-            <h3 className="product-title">{nombre}</h3>
+            <h3 className="product-title">{product.nombre}</h3>
             <div className="rating">
               <div className="stars">
                 <span className="fa fa-star checked"></span>
@@ -66,15 +80,15 @@ function ItemDetail({ nombre, img, descripcion, precio, stockDis, onAdd }) {
                 <span className="fa fa-star"></span>
               </div>
             </div>
-            <p className="product-description">{descripcion}</p>
+            <p className="product-description">{product.descripcion}</p>
             <h4 className="price">
-              Precio: <span>{precio}</span>
+              Precio: <span>{product.precio}</span>
             </h4>
             {inputType === "ItemCount" ? (
               <ItemCount
-                stock={stockDis}
+                stock={product.stock}
                 initial={1}
-                onAdd={cart}
+                onAdd={onAdd}
                 handleInputType={handleInputType}
               />
             ) : (

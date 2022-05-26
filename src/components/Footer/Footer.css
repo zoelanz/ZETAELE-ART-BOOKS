@@ -1,0 +1,101 @@
+.footer {
+    background-color: rgb(8, 8, 8);
+    height: 95px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-top: 15px;
+
+}
+
+
+.copyright {
+    margin-top: 30px;
+    padding: 0 30px;
+    font-family: 'Questrial', sans-serif;
+
+}
+
+.redes {
+    padding: 0 30px;
+
+
+}
+
+
+
+/* From uiverse.io by @fanishah */
+.button {
+    margin-top: 20px;
+    font-family: inherit;
+    font-weight: 400;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 0.2em 0.2em;
+    font-size: 17px;
+    border: none;
+    border-radius: 0.7em;
+    letter-spacing: 0.08em;
+    position: relative;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 2.5em;
+    padding-left: 3em;
+    padding-right: 0.7em;
+    font-family: 'Questrial', sans-serif;
+
+}
+
+.button .icon {
+    background: #fff;
+    margin-right: 1em;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.5em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0.3em;
+    transition: all .7s;
+    color: black;
+
+}
+
+.shere {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-left: 4px;
+}
+
+.button:hover .icon {
+    width: calc(100% - 0.6rem);
+    
+}
+
+.button:hover .shere {
+    width: calc(100% - 0.6rem);
+    display: none;
+
+}
+
+.button .icon-shere {
+    color: #000000;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: none;
+
+}
+
+.button:hover .icon .icon-shere {
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactMe {
+    margin-bottom: 0;
+    
+}
