@@ -66,43 +66,183 @@
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 
-.imgCart{
+.imgCart {
     width: 100px;
     height: auto;
 }
 
 
 
-.contenedorCart{
+.contenedorCart {
     display: flex;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
+    flex-direction: row;
     align-items: flex-start;
-    width: 80%;
-    margin-top: 20px;
-    justify-content: left;
-    padding: 0 20px;
+    width: 100%;
+    margin-top: 35px;
+    justify-content: space-around;
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
-    
+
 }
 
-.contenedorProductosCart{
-    background-color: rgba(147, 222, 27, 0.833);
-    justify-content: space-between;
-    margin-top: 10px;
-}
 
-.footerCart{
+
+.contenedorProductosCart {
+    width: 50%;
     display: flex;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulosTabla {
+    font-size: 14px;
+}
+
+
+
+.botonVaciarCarrito {
+    display: flex;
+    justify-content: center;
     width: 100%;
+    background-color: transparent;
+    border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+
+.contenedorResumenCompra {
+    width: 30%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
 
 }
 
-.btnEliminar{
+.tituloDetalleCompra {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.detalleCompra {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+
+
+.botonFinalizarCompra {
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    padding: 10px;
     border: none;
+    margin-top: 15px;
+}
+
+.spacing {
+    letter-spacing: 1.5px;
+}
+
+
+.contenedorCarritoVacio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.textoCarritoVacio {
+
+    font-family: 'Questrial', sans-serif;
+    letter-spacing: 4px;
+    margin-top: 50px;
+
+
+}
+
+
+.botonCartIrTienda {
+
     background-color: transparent;
+    border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+
+
+
+/* From uiverse.io */
+.botonEliminar {
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: black;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    background: black;
+}
+
+.botonEliminar,
+.botonEliminar span {
+    transition: 200ms;
+}
+
+.botonEliminar .text {
+    transform: translateX(35px);
+    color: white;
+    font-size: 14px;
+}
+
+.botonEliminar .icon {
+    position: absolute;
+    border-left: 1px solid black;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botonEliminar svg {
+    width: 15px;
+    fill: #eee;
+}
+
+.botonEliminar:hover {
+    background: black;
+}
+
+.botonEliminar:hover .text {
+    color: transparent;
+}
+
+.botonEliminar:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+}
+
+.botonEliminar:focus {
+    outline: none;
+}
+
+.botonEliminar:active .icon svg {
+    transform: scale(0.8);
 }

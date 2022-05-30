@@ -9,7 +9,7 @@ import { CartContext } from "../../context/CartContext";
 
 
 
-function ItemDetail({ product, onAdd, stockDis}) {
+function ItemDetail({ product, onAdd}) {
   
   const [inputType, setInputType] = useState("ItemCount");
   
@@ -82,7 +82,7 @@ function ItemDetail({ product, onAdd, stockDis}) {
             </div>
             <p className="product-description">{product.descripcion}</p>
             <h4 className="price">
-              Precio: <span>{product.precio}</span>
+              Precio: <span> US${product.precio}</span>
             </h4>
             {inputType === "ItemCount" ? (
               <ItemCount

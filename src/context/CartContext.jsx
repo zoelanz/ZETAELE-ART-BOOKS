@@ -3,10 +3,10 @@ import { createContext, useState } from "react";
 export const CartContext = createContext([]);
 
 function CartContextProvider({ children }) {
+
   //creo los estados y funciones globales
 
   const [cartList, setcartList] = useState([]);
-
 
 
   function añadirAlCarrito(item) {
@@ -43,12 +43,7 @@ function CartContextProvider({ children }) {
 
     return cartList.reduce((contador,producto)=>contador + (producto.quantity*producto.precio),0)
 
-
-
   }
-
-
- 
 
   return (
     <div>

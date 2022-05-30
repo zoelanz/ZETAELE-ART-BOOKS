@@ -328,12 +328,6 @@ function ItemDetailContainer() {
   return (
     <div className="containerDetail">
         <ItemDetail
-          // nombre={productoDelArray.nombre}
-          // id={productoDelArray.id}
-          // precio={productoDelArray.precio}
-          // descripcion={productoDelArray.descripcion}
-          // img={productoDelArray.img}
-          // stockDis={productoDelArray.stock}
           product={productoDelArray}
         />
     </div>
