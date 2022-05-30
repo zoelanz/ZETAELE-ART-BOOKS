@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import "./ItemDetailContainer.css";
+import {getFirestore ,doc, getDoc} from "firebase/firestore"
 
 let libros = [
   {
@@ -306,29 +307,39 @@ let libros = [
   },
 ];
 
+
+
+    //  // // // // // // // //  esto en ITEM DETAIL CONTAINER // // // // // // // // 
+
+
+
+
 function ItemDetailContainer() {
   const [productoDelArray, setProductoDelArray] = useState({});
+  const [producto, setProducto] = useState([]);
+
 
   const { detailId } = useParams();
 
-  const promesa = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(libros);
-    }, 2000);
-  });
 
-  useEffect(() => {
-    promesa
-      .then((respuesta) => {
-        setProductoDelArray(respuesta.find((item) => item.id === detailId));
-      })
+
+    useEffect(() => {
+      const db= getFirestore()
+   
+      const dbQuery= doc(db,"productos",detailId)
+   
+      getDoc(dbQuery)
+      .then(resp=>setProducto({id: resp.id, ...resp.data()}))
      
-  }, []);
+       
+     }, [])
+
+ 
 
   return (
     <div className="containerDetail">
         <ItemDetail
-          product={productoDelArray}
+          product={producto}
         />
     </div>
   );

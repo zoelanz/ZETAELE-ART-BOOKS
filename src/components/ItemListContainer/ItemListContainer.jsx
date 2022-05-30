@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import getFirestoreApp from "../../Firebase/config";
-import {getFirestore ,doc, getDoc, collection, getDocs} from "firebase/firestore"
+import {getFirestore, collection, getDocs,query,where} from "firebase/firestore"
 
 
 let libros = [
@@ -318,81 +318,84 @@ function ItemListContainer() {
 
   const { categoria } = useParams();
 
-  const promesa = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(libros);
-    }, 2000);
-  });
-
-    //  // // // // // // // //  esto en ITEM DETAIL CONTAINER // // // // // // // // 
+  // const promesa = new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve(libros);
+  //   }, 2000);
+  // });
 
 
-  // con esto traigo un solo documento
-
-  // useEffect(() => {
-  //  const db= getFirestore() //funcion predeterminada de firestore
-
-  //  const dbQuery= doc(db,"productos","HUDmrow4wWGlTYOiMzVX")
-
-  //  getDoc(dbQuery)
-  //  .then(resp=>setProducto({id: resp.id, ...resp.data()}))
-  
-    
-  // }, [])
 
     //  // // // // // // // //  esto en ITEM LIST CONTAINER :// // // // // // // // 
 
+    useEffect(() => {
 
-//  useEffect(() => {
+      const db= getFirestore() 
+ 
+      const queryCollection = collection (db, "productos")
 
-//     const db= getFirestore() //funcion predeterminada de firestore
+    if(!categoria){
+     getDocs(queryCollection)
+     .then(resp=>setProducto(resp.docs.map(prod=> ({id: prod.id, ...prod.data()}) ) ) )
+     .catch((error)=>(error))
+     .finally(()=>setLoading(false))
 
-//     const queryCollection = collection (db, "productos")
 
-//     getDocs(queryCollection)
-//     .then(resp=>setProductos(resp.docs.map(prod=> ({id: prod.id, ...prod.data()}) ) ) )
-//     .catch((error)=>(error))
-//     .finally(()=>setLoading(false))
+    }else{
 
-//    }, [])
+     const queryCollectionFilter = query(queryCollection, where("categoria", '==', categoria));
+     getDocs(queryCollectionFilter)
+       .then((resp) =>
+         setProducto(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+       )
+       .catch((err) => console.error(err))
+       .finally(() => setLoading(false));
+}}, [categoria]);
+  
 
-  //  console.log(productos)
+    
 
-    //  // // // // // // // //  esto en ITEM LIST CONTAINER : FILTER // // // // // // // // 
 
-  //  useEffect(() => {
-  //   const db = getFirestore();
-  //   const queryCollection = collection(db, "productos");
-  //   const queryCollectionFilter = query(queryCollection, where("price", '==', 250));
-  //   getDocs(queryCollectionFilter)
-  //     .then((resp) =>
-  //       setProducts(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
-  //     )
-  //     .catch((err) => console.error(err))
-  //     .finally(() => setLoading(false));
-  // }, []);
   
 
 
 
 
-   useEffect(() => {
-     if (categoria) {
-       promesa
-         .then(setLoading(true))
-         .then((respuesta) =>
-           setProductos(respuesta.filter((item) => item.categoria === categoria))
-         )
-         .catch((err) => console.log(err))
-         .finally(() => setLoading(false));
-     } else {
-       promesa
-         .then(setLoading(true))
-         .then((respuesta) => setProductos(respuesta))
-         .catch((err) => console.log(err))
-         .finally(() => setLoading(false));
-     }
-   }, [categoria]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  //  useEffect(() => {
+  //    if (categoria) {
+  //      promesa
+  //        .then(setLoading(true))
+  //        .then((respuesta) =>
+  //          setProductos(respuesta.filter((item) => item.categoria === categoria))
+  //        )
+  //        .catch((err) => console.log(err))
+  //        .finally(() => setLoading(false));
+  //    } else {
+  //      promesa
+  //        .then(setLoading(true))
+  //        .then((respuesta) => setProductos(respuesta))
+  //        .catch((err) => console.log(err))
+  //        .finally(() => setLoading(false));
+  //    }
+  //  }, [categoria]);
 
 
   return (
@@ -407,7 +410,7 @@ function ItemListContainer() {
               <span>VOLVER</span>
             </Link>
           )}
-          <ItemList productosFetch={productos} />
+          <ItemList productosFetch={producto} />
         </>
       )}
     </div>
