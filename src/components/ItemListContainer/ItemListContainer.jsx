@@ -340,7 +340,6 @@ function ItemListContainer() {
      .catch((error)=>(error))
      .finally(()=>setLoading(false))
 
-
     }else{
 
      const queryCollectionFilter = query(queryCollection, where("categoria", '==', categoria));
@@ -351,51 +350,7 @@ function ItemListContainer() {
        .catch((err) => console.error(err))
        .finally(() => setLoading(false));
 }}, [categoria]);
-  
 
-    
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  //  useEffect(() => {
-  //    if (categoria) {
-  //      promesa
-  //        .then(setLoading(true))
-  //        .then((respuesta) =>
-  //          setProductos(respuesta.filter((item) => item.categoria === categoria))
-  //        )
-  //        .catch((err) => console.log(err))
-  //        .finally(() => setLoading(false));
-  //    } else {
-  //      promesa
-  //        .then(setLoading(true))
-  //        .then((respuesta) => setProductos(respuesta))
-  //        .catch((err) => console.log(err))
-  //        .finally(() => setLoading(false));
-  //    }
-  //  }, [categoria]);
 
 
   return (

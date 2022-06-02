@@ -7,9 +7,7 @@ import { Link } from "react-router-dom";
 
 function Item({ nombre, img, itemId, precio}) {
 
-  function cart(count) {
-    alert(`${count} items agregados al carrito`);
-  }
+
 
   return (
     <Card className="card" style={{ width: "16rem" }}>

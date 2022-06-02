@@ -79,9 +79,10 @@
     align-items: flex-start;
     width: 100%;
     margin-top: 35px;
-    justify-content: space-around;
+    justify-content: space-evenly;
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
+    /* background-color: darkolivegreen; */
 
 }
 
@@ -92,6 +93,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* background-color: chocolate; */
 }
 
 .titulosTabla {
@@ -111,19 +113,28 @@
     font-weight: bold;
 }
 
+.contenedorResumenFormulario{
+    /* background-color: crimson; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
 
 
 .contenedorResumenCompra {
-    width: 30%;
-    height: 300px;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    /* background-color: cornflowerblue; */
 
 }
 
-.tituloDetalleCompra {
+.tituloDetalleCompra p {
     display: flex;
     justify-content: center;
+    margin-bottom: 0;
 }
 
 
@@ -132,7 +143,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-content: space-around;
+    /* background-color: coral; */
 }
 
 
@@ -151,36 +162,62 @@
 }
 
 
+
+.contenedorCarritoVacio1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+    background-color:  rgb(8, 8, 8);
+  
+}
+
+
 .contenedorCarritoVacio {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
+    height: 100%;
+    background-color: rgb(8, 8, 8);
+   
+  
 }
 
 
 .textoCarritoVacio {
 
     font-family: 'Questrial', sans-serif;
+    font-size: 17px;
     letter-spacing: 4px;
-    margin-top: 50px;
-
-
+    color: white;
+    padding-bottom: 10px;
 }
+
 
 
 .botonCartIrTienda {
 
     background-color: transparent;
+    border: white solid 1.5px;
     border-radius: 7px;
     padding: 10px;
     margin-bottom: 20px;
-    font-weight: bold;
     text-decoration: none;
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    letter-spacing: 2px;
+    
+
 
 }
 
+.animate__animated{
+    color: white;
+}
 
 
 

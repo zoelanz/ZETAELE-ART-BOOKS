@@ -10,13 +10,21 @@ function CartContextProvider({ children }) {
 
 
   function añadirAlCarrito(item) {
-    const indice = cartList.findIndex((producto) => producto.id === item.id);
+
+ 
+
+
+
+
+
+
+    const indice = cartList.findIndex(producto => producto.id === item.id);
 
     // CON ESTE IF LOGRO QUE NO SE DUPLIQUE EL PRODUCTO Y QUE SUME EN CANTIDAD SI AGREGO PRODCUTOS
 
     if (indice !== -1) { 
       const cantidadVieja = cartList[indice].quantity;
-      cartList[indice].quantity +=cantidadVieja
+      cartList[indice].quantity = cantidadVieja + item.quantity
       setcartList([...cartList])
    
     } else {
@@ -28,14 +36,13 @@ function CartContextProvider({ children }) {
     setcartList(cartList.filter(prod=>prod.id !== id))
   }
 
- 
   function vaciarCarrito() {
     setcartList([]);
   }
 
   function cantidadTotal(){
 
-    return cartList.reduce((contador,producto)=>contador+=producto.quantity,0)
+    return cartList.reduce((contador,producto)=>contador += producto.quantity,0)
 
   }
 
@@ -44,6 +51,8 @@ function CartContextProvider({ children }) {
     return cartList.reduce((contador,producto)=>contador + (producto.quantity*producto.precio),0)
 
   }
+
+
 
   return (
     <div>

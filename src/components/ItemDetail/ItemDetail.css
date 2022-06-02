@@ -70,7 +70,9 @@ img {
 
 .cardDetail {
   margin-top: 20px;
-  background: #eee;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%);
+  /* background: #eee; */
   /* background-color: cornflowerblue; */
   display: flex;
   flex-direction: row;
@@ -83,24 +85,20 @@ img {
 
 
 
-.container-fluid{
-  /* background-color: aqua; */
- 
-}
 
 
 
-.carrousel{
+.carrousel {
   /* background-color: red; */
-  width: 100% ;
+  width: 100%;
 
 }
 
-.w-100{
+.w-100 {
   width: 80% !important;
 }
 
-.containerImgCarrousel{
+.containerImgCarrousel {
   /* background-color: chartreuse; */
   display: flex;
   justify-content: center;
@@ -150,7 +148,7 @@ img {
   text-align: center;
 }
 
-.product-description{
+.product-description {
   margin-top: 30px;
   width: 100%;
 }
@@ -163,7 +161,7 @@ img {
 
 
 
-.product-description{
+.product-description {
   font-size: 15px;
   text-align: justify;
 }
@@ -239,4 +237,3 @@ img {
     transform: scale(1);
   }
 }
-

@@ -47,6 +47,7 @@ function NavBar() {
            <Link to={`/carrito`}>
            
               <CartWidget/>
+              
            </Link> 
           </ul>
         </nav>

@@ -1,7 +1,10 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import { ImHeartBroken} from "react-icons/im";
+import { ImHeartBroken } from "react-icons/im";
+// import CartModal from "../CartModal/CartModal";
+
+import "animate.css";
 
 import "./Cart.css";
 
@@ -14,7 +17,7 @@ function Cart() {
     cantidadTotal,
   } = useContext(CartContext);
 
-  return (cartList.length ? (
+  return cartList.length ? (
     <div className="contenedorCart">
       <div className="contenedorProductosCart">
         <div>
@@ -70,44 +73,86 @@ function Cart() {
         </div>
       </div>
 
+        {/* RESUMEN DE COMPRA Y FORMULARIO */}
 
-      {/* RESUMEN DE COMPRA  */}
+      <div className="contenedorResumenFormulario">
+        {/* RESUMEN DE COMPRA  */}
 
-      <div className="contenedorResumenCompra">
-        <table className="table detalleCompra">
-          <thead>
-            <th className="tituloDetalleCompra spacing" scope="col">
-              <p>DETALLE DE COMPRA</p>{" "}
-            </th>
-          </thead>
-          <tbody>
-            <td>
-              <p className="spacing">
-                Cantidad de productos: {cantidadTotal() !== 0 && cantidadTotal()}
-              </p>
-              <p className="spacing">
-                TOTAL: US${precioTotal() !== 0 && precioTotal()}
-              </p>
-            </td>
-          </tbody>
+        <div className="contenedorResumenCompra">
+          <table className="table detalleCompra">
+            <thead>
+              <th className="tituloDetalleCompra spacing" scope="col">
+                <p>DETALLE DE COMPRA</p>{" "}
+              </th>
+            </thead>
 
-          <button className="botonFinalizarCompra spacing">
+            <tbody>
+              <td>
+                <p className="spacing">
+                  Cantidad de productos:
+                  {cantidadTotal() !== 0 && cantidadTotal()}
+                </p>
+                <p className="spacing">
+                  TOTAL: US${precioTotal() !== 0 && precioTotal()}
+                </p>
+              </td>
+            </tbody>
+            
+          </table>
+          <button className="botonFinalizarCompra spacing ">
             Finalizar compra!
           </button>
-        </table>
+        </div>
+
+        {/* FORMULARIO */}
+
+        <div className="contenedorFormulario">
+          <form action="">
+            <div className="row">
+              <div className="col-25">
+                <label for="nombre">NOMBRE</label>
+              </div>
+              <div className="col-75">
+                <input type="text" placeholder="Nombre" className="w-100" />
+              </div>
+
+              <div className="col-25">
+                <label for="apellido">APELLIDO</label>
+              </div>
+              <div className="col-75">
+                <input type="text" placeholder="Apellido" className="w-100" />
+              </div>
+
+              <div className="col-25">
+                <label for="email">EMAIL</label>
+              </div>
+              <div className="col-75">
+                <input type="email" placeholder="Email" className="w-100" />
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   ) : (
-    <div className="contenedorCarritoVacio">
+    <div className="contenedorCarritoVacio1">
+      <div className="contenedorCarritoVacio animate__animated animate__zoomIn animate__slow">
+        <h2 className="textoCarritoVacio ">SU CARRITO ESTA VACIO </h2>
 
-      <h2 className="textoCarritoVacio">SU CARRITO ESTA VACIO <ImHeartBroken/> </h2>
-     
-      <NavLink activeclassname='currentCategory' className='text-white' to={"/tienda"}>
-        <button className="botonCartIrTienda">IR A LA TIENDA</button>
-      </NavLink>
-
+        <NavLink
+          activeclassname="currentCategory"
+          className="text-white"
+          to={"/tienda"}
+        >
+          <button className="botonCartIrTienda">IR A LA TIENDA</button>
+        </NavLink>
+        <ImHeartBroken
+          className="animate__animated animate__swing animate__slower animate__repeat-3 	"
+          size={50}
+        />
+      </div>
     </div>
-  ));
+  );
 }
 
 export default Cart;
