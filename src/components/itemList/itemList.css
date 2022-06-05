@@ -5,12 +5,16 @@
     grid-template-columns: repeat(auto-fit, 300px);
     justify-content: space-evenly;
     margin: 0;
+    display: grid;
+  
 
 }
 
 .containerCard{
-    /* background-color: blue; */
     display: flex;
     justify-content: center;
+   
+  
+
 }
 

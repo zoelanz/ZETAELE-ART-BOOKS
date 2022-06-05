@@ -35,7 +35,7 @@ function App() {
             <Route path="/*" element={<Navigate to="/tienda" replace />} />
           </Routes>
 
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </BrowserRouter>
     </CartContextProvider>

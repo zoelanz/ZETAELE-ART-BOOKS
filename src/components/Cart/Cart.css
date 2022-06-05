@@ -1,4 +1,3 @@
-
 .containerChangeButton {
     display: flex;
 }
@@ -124,12 +123,11 @@
 
 }
 
-.botonVaciarCarrito:hover{
+.botonVaciarCarrito:hover {
     letter-spacing: 4px;
 }
 
-.contenedorResumenFormulario{
-    /* background-color: crimson; */
+.contenedorResumenFormulario {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,7 +140,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* background-color: cornflowerblue; */
 
 }
 
@@ -166,6 +163,7 @@
 
 .spacing {
     letter-spacing: 1.5px;
+    margin: 0;
 }
 
 
@@ -177,8 +175,8 @@
     flex-direction: column;
     width: 100%;
     height: 500px;
-    background-color:  rgb(8, 8, 8);
-  
+    background-color: rgb(8, 8, 8);
+
 }
 
 
@@ -190,8 +188,8 @@
     width: 100%;
     height: 100%;
     background-color: rgb(8, 8, 8);
-   
-  
+
+
 }
 
 
@@ -217,12 +215,12 @@
     color: white;
     font-family: 'Questrial', sans-serif;
     letter-spacing: 2px;
-    
+
 
 
 }
 
-.animate__animated{
+.animate__animated {
     color: white;
 }
 
@@ -290,4 +288,109 @@
 .botonEliminar:active .icon svg {
     transform: scale(0.8);
 }
+
+
+@media screen and (max-width: 1010px) {
+
+    .contenedorCart {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        margin-top: 35px;
+        justify-content: space-evenly;
+        font-family: 'Questrial', sans-serif;
+        font-weight: bold;
+
+    }
+
+    .contenedorProductosCart {
+        width: 100%;
+
+    }
+
+    .contenedorResumenFormulario {
+
+        width: 100%;
+    }
+
+    .contenedorResumenFormulario .tituloDetalleCompra {
+
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .contenedorResumenFormulario .textOrder {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: 15px;
+        font-size: 17px;
+    }
+
+  
+
+}
+
+@media screen and (max-width: 768px){
+
+    .botonEliminar {
+        width: 2.4em;
+        margin: 0;
+    }
+
+    .botonEliminar .text {
+        display: none;
+        margin: 0;
+    }
+
+    .botonEliminar .icon {
+      display: none;
+
+    } 
+
+    .tableMediaQuery{
+        background-color: darkorange;
+        font-size: 13px;
+
+    }
+
+    .titulosTabla {
+        font-size: 13px;
+
+    }
+
+}
+
+@media screen and (max-width: 440px){
+
+    .titulosTabla {
+        font-size: 10px;
+
+    }
+
+
+    .tableMediaQuery{
+        font-size: 10px;
+    }
+
+    .botonEliminar {
+        width: 2.9em;
+        height: 2.9em;
+        margin: 0;
+    }
+    
+
+
+
+}
+
+
+
+
+
+
 

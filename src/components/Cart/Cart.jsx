@@ -48,7 +48,7 @@ function Cart() {
     <div className="contenedorCart">
       <div className="contenedorProductosCart">
         <div>
-          <table className="table">
+          <table className="table tableMediaQuery">
             <thead className="spacing titulosTabla">
               <tr>
                 <th scope="col">PRODUCTO</th>
@@ -58,15 +58,17 @@ function Cart() {
                 <th scope="col">ELIMINAR</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="tableBody">
               {cartList.map((producto) => (
                 <tr key={producto.id}>
                   <th scope="row">
                     <img className="imgCart" src={producto.img} alt="" />
                   </th>
+                
                   <td>{producto.nombre}</td>
                   <td>{producto.precio}</td>
                   <td>{producto.quantity}</td>
+                 
                   <td>
                     <button
                       class="noselect botonEliminar"
@@ -112,7 +114,7 @@ function Cart() {
                 <p>DETALLE DE COMPRA</p>{" "}
               </th>
             </thead>
-            <tbody>
+            <tbody className="textOrder">
               <td>
                 <p className="spacing">
                   Cantidad de productos:
