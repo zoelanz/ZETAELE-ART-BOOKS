@@ -1,14 +1,41 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { ImHeartBroken } from "react-icons/im";
-// import CartModal from "../CartModal/CartModal";
+import CartModal from "../CartModal/CartModal";
 
 import "animate.css";
-
 import "./Cart.css";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
+
+
+// function addDocsFb(){
+//   libros.forEach((testItem) => {
+//   const db = getFirestore();
+
+//   const queryCollection = collection(db, "productos");
+
+//   addDoc(queryCollection, testItem)
+//   .then((resp)=> console.log(resp))
+// });}
+
+
+
+
 
 function Cart() {
+  const [show, setShow] = useState(false);
+
+  const [fullscreen, setFullscreen] = useState(true);
+
+  const handleClose = () => setShow(false);
+
+  function handleShow(breakpoint) {
+    setFullscreen(breakpoint);
+    setShow(true);
+  }
+
   const {
     cartList,
     vaciarCarrito,
@@ -73,7 +100,7 @@ function Cart() {
         </div>
       </div>
 
-        {/* RESUMEN DE COMPRA Y FORMULARIO */}
+      {/* RESUMEN DE COMPRA Y FORMULARIO */}
 
       <div className="contenedorResumenFormulario">
         {/* RESUMEN DE COMPRA  */}
@@ -85,7 +112,6 @@ function Cart() {
                 <p>DETALLE DE COMPRA</p>{" "}
               </th>
             </thead>
-
             <tbody>
               <td>
                 <p className="spacing">
@@ -97,40 +123,15 @@ function Cart() {
                 </p>
               </td>
             </tbody>
-            
           </table>
-          <button className="botonFinalizarCompra spacing ">
-            Finalizar compra!
-          </button>
-        </div>
 
-        {/* FORMULARIO */}
-
-        <div className="contenedorFormulario">
-          <form action="">
-            <div className="row">
-              <div className="col-25">
-                <label for="nombre">NOMBRE</label>
-              </div>
-              <div className="col-75">
-                <input type="text" placeholder="Nombre" className="w-100" />
-              </div>
-
-              <div className="col-25">
-                <label for="apellido">APELLIDO</label>
-              </div>
-              <div className="col-75">
-                <input type="text" placeholder="Apellido" className="w-100" />
-              </div>
-
-              <div className="col-25">
-                <label for="email">EMAIL</label>
-              </div>
-              <div className="col-75">
-                <input type="email" placeholder="Email" className="w-100" />
-              </div>
-            </div>
-          </form>
+          <CartModal
+            className="botonFinalizarCompra spacing"
+            show={show}
+            handleShow={handleShow}
+            handleClose={handleClose}
+            fullscreen={fullscreen}
+          />
         </div>
       </div>
     </div>
@@ -144,13 +145,14 @@ function Cart() {
           className="text-white"
           to={"/tienda"}
         >
-          <button className="botonCartIrTienda">IR A LA TIENDA</button>
+          <button className="botonCartIrTienda">IR A LA TIENDA </button>
         </NavLink>
         <ImHeartBroken
-          className="animate__animated animate__swing animate__slower animate__repeat-3 	"
+          className="animate__animated animate__swing animate__slower animate__infinite 	"
           size={50}
         />
       </div>
+      {/* <button onClick={()=>addDocsFb()}> traer datos </button> */}
     </div>
   );
 }

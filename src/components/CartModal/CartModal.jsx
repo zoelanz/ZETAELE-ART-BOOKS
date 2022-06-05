@@ -1,34 +1,47 @@
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Form from "../Form/Form";
+import "./CartModal.css";
+import {FiHeart} from "react-icons/fi"
+import {GrClose} from "react-icons/gr"
 
-
-function CartModal() {
-
-    const values = [true, 'sm-down', 'md-down', 'lg-down', 'xl-down', 'xxl-down'];
-    const [fullscreen, setFullscreen] = useState(true);
-    const [show, setShow] = useState(false);
-  
-    function handleShow(breakpoint) {
-      setFullscreen(breakpoint);
-      setShow(true);
-    }
-  
+function CartModal({ show, handleShow, handleClose, fullscreen }) {
   return (
     <>
-    {values.map((v, idx) => (
-      <Button key={idx} className="me-2 mb-2" onClick={() => handleShow(v)}>
-        Full screen
-        {typeof v === 'string' && `below ${v.split('-')[0]}`}
+      <Button className="buttonFinalizarCompra" variant="primary" onClick={handleShow}>
+        Finalizar compra!
       </Button>
-    ))}
-    <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
-      <Modal.Header closeButton>
-        <Modal.Title>Modal</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>Modal body content</Modal.Body>
-    </Modal>
-  </>
-  )
+
+      <Modal
+        size="lg"
+        show={show}
+        onHide={handleClose}
+        className="modalContainer "
+      >
+        <Modal.Header className="modalHeader text-center" closeButton>
+          <Modal.Title className="modalTitle w-100">
+            Ultimo paso para tener tu libro con vos! <FiHeart size={25}/>
+          </Modal.Title>
+          <GrClose onClick={handleClose} size={30} className="closeButton"/>
+        </Modal.Header>
+
+          <Modal.Body className="modalBody">
+           <Form />
+          </Modal.Body>
+      
+
+        <Modal.Footer className="modalFooter">
+          <Button
+            className="modalButton"
+            variant="secondary"
+            
+          >
+            FINALIZAR COMPRA
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
 }
 
-export default CartModal
-
-
+export default CartModal;

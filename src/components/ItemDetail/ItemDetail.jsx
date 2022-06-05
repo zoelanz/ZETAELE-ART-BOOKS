@@ -8,14 +8,12 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
 
-
 function ItemDetail({ product, onAdd}) {
   
   const [inputType, setInputType] = useState("ItemCount");
-  
-  
-  const {añadirAlCarrito,cartList} = useContext(CartContext)
 
+
+  const {añadirAlCarrito,cartList} = useContext(CartContext)
 
 
   function handleInputType() {
@@ -23,13 +21,11 @@ function ItemDetail({ product, onAdd}) {
   }
 
   function onAdd (qty) {
-    alert(`${qty} items agregados al carrito`);
+    // alert(`${qty} items agregados al carrito`);
     añadirAlCarrito({...product,quantity:qty})
     handleInputType()
    
   }
-
-  // console.log(cartList)
 
   return (
     <div className="cardDetail">
@@ -38,7 +34,7 @@ function ItemDetail({ product, onAdd}) {
           <Carousel.Item>
             <div className="containerImgCarrousel">
               <img
-                className="d-block w-100 imgCarrousel"
+                className="d-block w-100"
                 src={product.img}
                 alt="First slide"
               />
@@ -48,7 +44,7 @@ function ItemDetail({ product, onAdd}) {
           <Carousel.Item>
             <div className="containerImgCarrousel">
               <img
-                className="d-block w-100 imgCarrousel"
+                className="d-block w-100"
                 src={product.img}
                 alt="Second slide"
               />
@@ -58,7 +54,7 @@ function ItemDetail({ product, onAdd}) {
           <Carousel.Item>
             <div className="containerImgCarrousel">
               <img
-                className="d-block w-100 imgCarrousel"
+                className="d-block w-100"
                 src={product.img}
                 alt="Third slide"
               />

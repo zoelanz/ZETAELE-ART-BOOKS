@@ -1,9 +1,10 @@
-import "./item.css";
 
 import { Card } from "react-bootstrap";
 
-// import ItemCount from "../itemCount/itemCount";
 import { Link } from "react-router-dom";
+
+import "./item.css";
+
 
 function Item({ nombre, img, itemId, precio}) {
 

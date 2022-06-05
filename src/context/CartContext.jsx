@@ -11,13 +11,6 @@ function CartContextProvider({ children }) {
 
   function añadirAlCarrito(item) {
 
- 
-
-
-
-
-
-
     const indice = cartList.findIndex(producto => producto.id === item.id);
 
     // CON ESTE IF LOGRO QUE NO SE DUPLIQUE EL PRODUCTO Y QUE SUME EN CANTIDAD SI AGREGO PRODCUTOS

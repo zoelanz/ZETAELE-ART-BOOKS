@@ -4,7 +4,8 @@
     display: flex;
     justify-content: space-between;
     color: white;
-    margin-top: 15px;
+    border-top: 2px solid white;
+    /* margin-top: 15px; */
 
 }
 

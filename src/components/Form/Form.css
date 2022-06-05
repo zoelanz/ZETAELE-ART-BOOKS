@@ -1,0 +1,27 @@
+.contenedorFormulario {
+    font-family: 'Questrial', sans-serif;
+    text-align: center;
+
+}
+
+
+.input {
+    border: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    padding: 20px;
+    letter-spacing: 1.5px;
+    background-color: rgb(8, 8, 8);
+    color: white;
+}
+
+.input:focus-visible {
+    outline: none;
+}
+
+
+
+::placeholder {
+    color: white;
+    /* font-weight: bold; */
+
+}

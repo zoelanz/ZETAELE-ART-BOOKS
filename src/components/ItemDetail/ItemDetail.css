@@ -70,22 +70,17 @@ img {
 
 .cardDetail {
   margin-top: 20px;
-  background: rgb(255, 255, 255);
   background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%);
-  /* background: #eee; */
-  /* background-color: cornflowerblue; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 3em;
   line-height: 1.5em;
   width: 95%;
+  font-family: 'Questrial', sans-serif;
+  
 
 }
-
-
-
-
 
 
 .carrousel {
@@ -94,15 +89,17 @@ img {
 
 }
 
+
+
 .w-100 {
   width: 80% !important;
 }
 
 .containerImgCarrousel {
-  /* background-color: chartreuse; */
   display: flex;
   justify-content: center;
 }
+
 
 @media screen and (min-width: 997px) {
 

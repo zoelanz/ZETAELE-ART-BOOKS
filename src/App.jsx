@@ -1,17 +1,21 @@
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+
+
+import "bootstrap/dist/css/bootstrap.min.css"; 
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+
+
 import NavBar from "./components/NavBar/NavBar"; // importo el archivo del navbar
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./components/Cart/Cart";
 import HomeContent from "./components/HomeContent/HomeContent";
 import Footer from "./components/footer/footer";
 import CartContextProvider from "./context/CartContext";
 
-function App() {
-  // llamo a la funcion donde cree el navbar: SE LO LLAMA ELEMENTO, llamo a las apis o fuentes externas
 
+function App() {
   return (
     <CartContextProvider>
       <BrowserRouter>
@@ -31,7 +35,7 @@ function App() {
             <Route path="/*" element={<Navigate to="/tienda" replace />} />
           </Routes>
 
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </BrowserRouter>
     </CartContextProvider>

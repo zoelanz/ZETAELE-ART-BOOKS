@@ -1,0 +1,125 @@
+
+.buttonFinalizarCompra {
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    padding: 10px;
+    border: none;
+    margin-top: 15px;
+    transition: ease-in-out 0.4s;
+    letter-spacing: 1.5px;
+
+}
+
+.buttonFinalizarCompra:hover{
+    background-color: black;
+    letter-spacing: 4px;
+}
+
+
+.buttonFinalizarCompra:focus{
+    background-color: rgb(0, 0, 0);
+    border-color: #000000;
+    box-shadow: none;
+ 
+
+}
+
+.buttonFinalizarCompra:focus-visible{
+  display: none;
+
+}
+
+.buttonFinalizarCompra:active{
+   border: transparent;
+   border-color: black;
+   box-shadow: none;
+
+}
+
+ .btn-primary {
+    color: #fff;
+    background-color: rgb(0, 0, 0);
+    border-color: #000000;
+}
+
+
+
+
+.modalContainer {
+    font-family: 'Questrial', sans-serif;
+    letter-spacing: 1.5px;
+}
+
+.modalHeader {
+    border: none;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(8, 8, 8);
+}
+
+.modalBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-position: center;
+    background-size: contain;
+    padding: 0;
+    background-color: rgb(8, 8, 8);
+}
+
+
+
+.modalTitle {
+    font-family: 'Questrial', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    /* font-weight: bold; */
+    color: white;
+
+
+}
+
+.modal-header .btn-close {
+    display: none;
+}
+
+.closeButton {
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+
+
+.modalFooter {
+    display: flex;
+    justify-content: center;
+    border-top: none;
+    background-color: rgb(8, 8, 8);
+
+
+}
+
+.modalButton {
+
+    width: 40%;
+    background-color: rgb(8, 8, 8);
+    border: 1px solid rgb(255, 255, 255);
+    letter-spacing: 1.5px;
+    transition: ease-in-out 0.4s;
+
+
+
+
+}
+
+.modalButton:hover {
+    background-color: rgb(8, 8, 8);
+    border: 1px solid rgb(255, 255, 255);
+    letter-spacing: 4px;
+
+
+
+}
