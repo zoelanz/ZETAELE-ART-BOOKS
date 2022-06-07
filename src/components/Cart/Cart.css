@@ -383,11 +383,17 @@
         margin: 0;
     }
     
+}
 
+@media screen and (max-width: 360px){
+    
+
+    .tableMediaQuery{
+        font-size: 8px;
+    }
 
 
 }
-
 
 
 

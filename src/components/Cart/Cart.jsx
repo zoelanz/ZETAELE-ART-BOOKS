@@ -2,13 +2,14 @@ import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { ImHeartBroken } from "react-icons/im";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
 import CartModal from "../CartModal/CartModal";
 
 import "animate.css";
 import "./Cart.css";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-
+// FUNCION PARA SUBIR TODOS LOS PRODUCTOS A FIREBASE
 
 // function addDocsFb(){
 //   libros.forEach((testItem) => {
@@ -21,10 +22,8 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 // });}
 
 
-
-
-
 function Cart() {
+
   const [show, setShow] = useState(false);
 
   const [fullscreen, setFullscreen] = useState(true);
@@ -43,6 +42,36 @@ function Cart() {
     precioTotal,
     cantidadTotal,
   } = useContext(CartContext);
+
+  // ORDEN DE COMPRA HARDCODEADA
+
+  const generateOrder = () => {
+
+    let order = {};
+    order.buyer = {
+      name: "Zoe",
+      email: "zoemarialanz@gmail.com",
+      phone: "2235911534",
+    };
+    
+    order.total= precioTotal();
+    order.productos = 
+    cartList.map
+    ((cartProduct) => {
+      const id = cartProduct.id;
+      const name = cartProduct.nombre;
+      const price = cartProduct.precio * cartProduct.quantity;
+
+      return { id, name, price };
+    }); 
+
+    const db = getFirestore();
+    const queryCollection = collection(db, "Orden de compra");
+    addDoc(queryCollection, order)
+      .then((resp) => console.log(resp))
+      .catch((err) => console.log(err))
+      .finally(() => vaciarCarrito()); 
+  }
 
   return cartList.length ? (
     <div className="contenedorCart">
@@ -102,11 +131,9 @@ function Cart() {
         </div>
       </div>
 
-      {/* RESUMEN DE COMPRA Y FORMULARIO */}
+      {/* RESUMEN DE COMPRA */}
 
       <div className="contenedorResumenFormulario">
-        {/* RESUMEN DE COMPRA  */}
-
         <div className="contenedorResumenCompra">
           <table className="table detalleCompra">
             <thead>
@@ -126,6 +153,8 @@ function Cart() {
               </td>
             </tbody>
           </table>
+
+          <button onClick={generateOrder}>Enviar orden de compra!</button>
 
           <CartModal
             className="botonFinalizarCompra spacing"
