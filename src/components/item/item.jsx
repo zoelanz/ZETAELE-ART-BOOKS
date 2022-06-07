@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./item.css";
 
 
-function Item({ nombre, img, itemId, precio}) {
+function Item({name, img, itemId, price}) {
 
 
 
@@ -14,8 +14,8 @@ function Item({ nombre, img, itemId, precio}) {
     <Card className="card" style={{ width: "16rem" }}>
       <Card.Img className="imagenCard" variant="top" src={img} />
       <Card.Body className="bodyCard">
-        <Card.Title className="tituloCard">{nombre}</Card.Title>
-        <Card.Text className="textoPrice" >US$ {precio}</Card.Text>
+        <Card.Title className="tituloCard">{name}</Card.Title>
+        <Card.Text className="textoPrice" >US$ {price}</Card.Text>
         <Link className="buttonDetail" to={`/detalle/${itemId}`}>
           DETALLES
         </Link>

@@ -5,7 +5,7 @@ import "./CartModal.css";
 import {FiHeart} from "react-icons/fi"
 import {GrClose} from "react-icons/gr"
 
-function CartModal({ show, handleShow, handleClose, fullscreen }) {
+function CartModal({ show, handleShow, handleClose }) {
   return (
     <>
       <Button className="buttonFinalizarCompra" variant="primary" onClick={handleShow}>
@@ -31,13 +31,7 @@ function CartModal({ show, handleShow, handleClose, fullscreen }) {
       
 
         <Modal.Footer className="modalFooter">
-          <Button
-            className="modalButton"
-            variant="secondary"
-            
-          >
-            FINALIZAR COMPRA
-          </Button>
+         
         </Modal.Footer>
       </Modal>
     </>

@@ -1,55 +1,117 @@
 import { createContext, useState } from "react";
 
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
 export const CartContext = createContext([]);
 
 function CartContextProvider({ children }) {
-
   //creo los estados y funciones globales
 
   const [cartList, setcartList] = useState([]);
 
-
-  function añadirAlCarrito(item) {
-
-    const indice = cartList.findIndex(producto => producto.id === item.id);
+  function addToCart(item) {
+    const index = cartList.findIndex((product) => product.id === item.id);
 
     // CON ESTE IF LOGRO QUE NO SE DUPLIQUE EL PRODUCTO Y QUE SUME EN CANTIDAD SI AGREGO PRODCUTOS
 
-    if (indice !== -1) { 
-      const cantidadVieja = cartList[indice].quantity;
-      cartList[indice].quantity = cantidadVieja + item.quantity
-      setcartList([...cartList])
-   
+    if (index !== -1) {
+      const previousQuantity = cartList[index].quantity;
+      cartList[index].quantity = previousQuantity + item.quantity;
+      setcartList([...cartList]);
     } else {
       setcartList([...cartList, item]);
     }
   }
 
-  function eliminarUnProducto(id){
-    setcartList(cartList.filter(prod=>prod.id !== id))
+  function deleteProduct(id) {
+    setcartList(cartList.filter((prod) => prod.id !== id));
   }
 
-  function vaciarCarrito() {
+  function emptyCart() {
     setcartList([]);
   }
 
-  function cantidadTotal(){
-
-    return cartList.reduce((contador,producto)=>contador += producto.quantity,0)
-
+  function totalQuantity() {
+    return cartList.reduce(
+      (counter, product) => (counter += product.quantity),
+      0
+    );
   }
 
-  function precioTotal(){
-
-    return cartList.reduce((contador,producto)=>contador + (producto.quantity*producto.precio),0)
-
+  function totalPrice() {
+    return cartList.reduce(
+      (counter, product) => counter + product.quantity * product.price,
+      0
+    );
   }
 
+  function purchaseOrder(e) {
+    //obtener datos del input y guardarlos en variables
 
+    const inputName = document.getElementById("formName").value;
+
+    const inputSurname = document.getElementById("formSurname").value;
+
+    const inputPhone = document.getElementById("formPhone").value;
+
+    const inputAddress = document.getElementById("formAddress").value;
+
+    const inputEmail = document.getElementById("formEmail").value;
+
+    if (
+      inputName != "" &&
+      inputSurname != "" &&
+      inputEmail != "" &&
+      inputPhone != "" &&
+      inputAddress != ""
+    ) {
+      e.preventDefault();
+      let order = {};
+
+      order.buyer = {
+        name: inputName,
+        surname: inputSurname,
+        phone: inputPhone,
+        address: inputAddress,
+        email: inputEmail,
+      };
+
+      order.products = cartList.map((cartProduct) => {
+        const id = cartProduct.id;
+        const name = cartProduct.name;
+        const quantity = cartProduct.quantity;
+        const price = cartProduct.price * cartProduct.quantity;
+
+        return { id, name, quantity, price };
+      });
+
+      order.total = totalPrice();
+
+      const db = getFirestore();
+      const queryCollectionOrders = collection(db, "Purchase order");
+      addDoc(queryCollectionOrders, order).then((resp) => console.log(resp))
+      .then(alert("ORDEN ENVIADA"))
+      .finally(setTimeout(() => {
+        window.location.href = "/tienda" 
+      }, 2000)
+       )
+    }
+
+  }
 
   return (
     <div>
-      <CartContext.Provider value={{ cartList, añadirAlCarrito, vaciarCarrito, eliminarUnProducto,cantidadTotal,precioTotal }}>
+      <CartContext.Provider
+        value={{
+          cartList,
+          addToCart,
+          emptyCart,
+          deleteProduct,
+          totalQuantity,
+          totalPrice,
+          purchaseOrder,
+        }}
+      >
         {children}
       </CartContext.Provider>
     </div>

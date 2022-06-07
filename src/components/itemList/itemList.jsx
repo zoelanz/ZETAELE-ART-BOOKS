@@ -2,13 +2,13 @@ import Item from "../item/item";
 import "./itemList.css";
 
 
-function ItemList({productosFetch}) {
+function ItemList({productsFetch}) {
   return (
     <div className="contenedorTodasLasCards">
-     {productosFetch.map((item)=>
+     {productsFetch.map((item)=>
       (
         <div className="containerCard" key={item.id}>
-          <Item nombre={item.nombre} img={item.img} stockDis={item.stock} itemId={item.id} precio={item.precio}/>
+          <Item name={item.name} img={item.img} stock={item.stock} itemId={item.id} price={item.price}/>
           
         </div>
       

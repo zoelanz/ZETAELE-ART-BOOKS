@@ -10,35 +10,35 @@ import {getFirestore, collection, getDocs,query,where,addDoc} from "firebase/fir
 
 
 function ItemListContainer() {
-  const [producto, setProducto] = useState({});
+  const [product, setProduct] = useState({});
 
   const [loading, setLoading] = useState(true);
 
-  const { categoria } = useParams();
+  const { category } = useParams();
 
 
     useEffect(() => {
 
       const db= getFirestore() 
  
-      const queryCollection = collection (db, "productos")
+      const queryCollection = collection (db, "products")
 
-    if(!categoria){
+    if(!category){
      getDocs(queryCollection)
-     .then(resp=>setProducto(resp.docs.map(prod=> ({...prod.data(),id: prod.id}) ) ) )
+     .then(resp=>setProduct(resp.docs.map(prod=> ({...prod.data(),id: prod.id}) ) ) )
      .catch((error)=>(error))
      .finally(()=>setLoading(false))
 
     }else{
 
-     const queryCollectionFilter = query(queryCollection, where("categoria", '==', categoria));
+     const queryCollectionFilter = query(queryCollection, where("category", '==', category));
      getDocs(queryCollectionFilter)
        .then((resp) =>
-         setProducto(resp.docs.map((prod) => ({...prod.data(),id: prod.id})))
+         setProduct(resp.docs.map((prod) => ({...prod.data(),id: prod.id})))
        )
        .catch((err) => console.error(err))
        .finally(() => setLoading(false));
-}}, [categoria]);
+}}, [category]);
 
 
 
@@ -48,13 +48,13 @@ function ItemListContainer() {
         <div className="loader"></div>
       ) : (
         <>
-          {categoria && (
+          {category && (
             <Link className="buttonVolver" to="/tienda">
               <MdOutlineKeyboardArrowLeft />
               <span>VOLVER</span>
             </Link>
           )}
-          <ItemList productosFetch={producto} />
+          <ItemList productsFetch={product} />
         </>
       )}
     </div>

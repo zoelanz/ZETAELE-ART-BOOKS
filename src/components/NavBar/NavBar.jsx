@@ -1,15 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import "./Navbar.css";
-import { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
 
 
 
 function NavBar() {
-
-  const {cantidadTotal } =
-  useContext(CartContext);
 
   return (
     <header>

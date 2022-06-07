@@ -3,7 +3,7 @@ import InputCount from "../InputCount/InputCount";
 
 import "./ItemDetail.css";
 
-import { Carousel } from "react-bootstrap";
+// import { Carousel } from "react-bootstrap";
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
@@ -13,7 +13,7 @@ function ItemDetail({ product, onAdd}) {
   const [inputType, setInputType] = useState("ItemCount");
 
 
-  const {añadirAlCarrito,cartList} = useContext(CartContext)
+  const {addToCart,cartList} = useContext(CartContext)
 
 
   function handleInputType() {
@@ -22,51 +22,26 @@ function ItemDetail({ product, onAdd}) {
 
   function onAdd (qty) {
     // alert(`${qty} items agregados al carrito`);
-    añadirAlCarrito({...product,quantity:qty})
+    addToCart({...product,quantity:qty})
     handleInputType()
    
   }
 
   return (
     <div className="cardDetail">
-      <div className="carrousel">
-        <Carousel variant="dark">
-          <Carousel.Item>
-            <div className="containerImgCarrousel">
-              <img
-                className="d-block w-100"
+      <div>
+
+      <img
+                className=" w-100"
                 src={product.img}
                 alt="First slide"
               />
-            </div>
-            <Carousel.Caption></Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="containerImgCarrousel">
-              <img
-                className="d-block w-100"
-                src={product.img}
-                alt="Second slide"
-              />
-            </div>
-            <Carousel.Caption></Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="containerImgCarrousel">
-              <img
-                className="d-block w-100"
-                src={product.img}
-                alt="Third slide"
-              />
-            </div>
-            <Carousel.Caption></Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+       
       </div>
       <div className="container-fluid">
         <div className="wrapper row">
           <div className="details col-md-12">
-            <h3 className="product-title">{product.nombre}</h3>
+            <h3 className="product-title">{product.name}</h3>
             <div className="rating">
               <div className="stars">
                 <span className="fa fa-star checked"></span>
@@ -76,9 +51,9 @@ function ItemDetail({ product, onAdd}) {
                 <span className="fa fa-star"></span>
               </div>
             </div>
-            <p className="product-description">{product.descripcion}</p>
+            <p className="product-description">{product.description}</p>
             <h4 className="price">
-              Precio: <span> US${product.precio}</span>
+              Precio: <span> US${product.price}</span>
             </h4>
             {inputType === "ItemCount" ? (
               <ItemCount
