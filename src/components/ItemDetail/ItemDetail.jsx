@@ -3,7 +3,6 @@ import InputCount from "../InputCount/InputCount";
 
 import "./ItemDetail.css";
 
-// import { Carousel } from "react-bootstrap";
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
@@ -13,7 +12,7 @@ function ItemDetail({ product, onAdd}) {
   const [inputType, setInputType] = useState("ItemCount");
 
 
-  const {addToCart,cartList} = useContext(CartContext)
+  const {addToCart} = useContext(CartContext)
 
 
   function handleInputType() {
@@ -21,7 +20,6 @@ function ItemDetail({ product, onAdd}) {
   }
 
   function onAdd (qty) {
-    // alert(`${qty} items agregados al carrito`);
     addToCart({...product,quantity:qty})
     handleInputType()
    
@@ -30,7 +28,6 @@ function ItemDetail({ product, onAdd}) {
   return (
     <div className="cardDetail">
       <div>
-
       <img
                 className=" w-100"
                 src={product.img}

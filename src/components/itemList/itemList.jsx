@@ -4,7 +4,7 @@ import "./itemList.css";
 
 function ItemList({productsFetch}) {
   return (
-    <div className="contenedorTodasLasCards">
+    <div className="containerAllCards">
      {productsFetch.map((item)=>
       (
         <div className="containerCard" key={item.id}>

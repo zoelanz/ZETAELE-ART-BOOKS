@@ -1,6 +1,11 @@
 import { createContext, useState } from "react";
 
+import { toast } from 'react-toastify';
+
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const CartContext = createContext([]);
 
@@ -43,6 +48,23 @@ function CartContextProvider({ children }) {
       (counter, product) => counter + product.quantity * product.price,
       0
     );
+  }
+
+  function toastify(){
+
+    toast('Su orden esta siendo procesada!', {
+      position: "top-center",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      className: 'toastify'
+      });
+
+
+
   }
 
   function purchaseOrder(e) {
@@ -90,10 +112,10 @@ function CartContextProvider({ children }) {
       const db = getFirestore();
       const queryCollectionOrders = collection(db, "Purchase order");
       addDoc(queryCollectionOrders, order).then((resp) => console.log(resp))
-      .then(alert("ORDEN ENVIADA"))
+      .then(toastify())
       .finally(setTimeout(() => {
         window.location.href = "/tienda" 
-      }, 2000)
+      }, 3500)
        )
     }
 
@@ -110,6 +132,7 @@ function CartContextProvider({ children }) {
           totalQuantity,
           totalPrice,
           purchaseOrder,
+          toastify
         }}
       >
         {children}

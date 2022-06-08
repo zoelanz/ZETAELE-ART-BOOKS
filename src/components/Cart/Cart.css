@@ -2,10 +2,12 @@
     display: flex;
 }
 
+.imgCart {
+    width: 100px;
+    height: auto;
+}
 
-
-
-.botonesOpciones {
+.buttonOptions {
     display: inline-block;
     padding: 10px 10px;
     border: 1px solid black;
@@ -13,18 +15,15 @@
     transition: all 0.2s ease-in;
     position: relative;
     overflow: hidden;
-    font-size: 14px;
+    font-size: 16px;
     color: black;
     z-index: 1;
     font-family: 'Questrial', sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-weight: bold;
-    background-color: transparent;
-
-
 }
 
-.botonesOpciones:before {
+.buttonOptions:before {
     content: "";
     position: absolute;
     left: 50%;
@@ -39,7 +38,7 @@
     z-index: -1;
 }
 
-.botonesOpciones:after {
+.buttonOptions:after {
     content: "";
     position: absolute;
     left: 55%;
@@ -54,33 +53,24 @@
     z-index: -1;
 }
 
-.botonesOpciones:hover {
+.buttonOptions:hover {
     color: #ffffff;
     font-weight: 400;
-
-    /* border: 1px solid #39bda7; */
 }
 
-.botonesOpciones:hover:before {
+.buttonOptions:hover:before {
     top: -35%;
     background-color: #000000;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 
-.botonesOpciones:hover:after {
+.buttonOptions:hover:after {
     top: -45%;
     background-color: #070707;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-}
+} 
 
-.imgCart {
-    width: 100px;
-    height: auto;
-}
-
-
-
-.contenedorCart {
+.containerCart {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -90,44 +80,37 @@
     justify-content: space-evenly;
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
-    /* background-color: darkolivegreen; */
-
 }
 
-
-
-.contenedorProductosCart {
+.containerProductsCart {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.titulosTabla {
+.tableTitle {
     font-size: 14px;
 }
-
-
 
 .buttonEmptyCart {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: transparent;
+    background-color: white;
     border-radius: 7px;
     padding: 10px;
     margin-bottom: 20px;
     font-weight: bold;
     letter-spacing: 1.5px;
     transition: ease-in-out 0.4s;
-
 }
 
 .buttonEmptyCart:hover {
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 }
 
-.contenedorResumenFormulario {
+.containerResume {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -135,40 +118,30 @@
     width: 40%;
 }
 
-
-.contenedorResumenCompra {
+.containerResumePurchase {
     width: 100%;
     display: flex;
     flex-direction: column;
-
 }
 
-.tituloDetalleCompra p {
+.purchaseDetail {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titlePurchaseDetail p {
     display: flex;
     justify-content: center;
     margin-bottom: 0;
 }
-
-
-
-.detalleCompra {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    /* background-color: coral; */
-}
-
-
-
 
 .spacing {
     letter-spacing: 1.5px;
     margin: 0;
 }
 
-
-
-.contenedorCarritoVacio1 {
+.containerEmptyCart1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,11 +149,9 @@
     width: 100%;
     height: 500px;
     background-color: rgb(8, 8, 8);
-
 }
 
-
-.contenedorCarritoVacio {
+.containerEmptyCart {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,13 +159,9 @@
     width: 100%;
     height: 100%;
     background-color: rgb(8, 8, 8);
-
-
 }
 
-
-.textoCarritoVacio {
-
+.textEmptyCart {
     font-family: 'Questrial', sans-serif;
     font-size: 17px;
     letter-spacing: 4px;
@@ -202,32 +169,28 @@
     padding-bottom: 10px;
 }
 
-
-
-.botonCartIrTienda {
-
-    background-color: transparent;
-    border: white solid 1.5px;
-    border-radius: 7px;
-    padding: 10px;
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: white;
-    font-family: 'Questrial', sans-serif;
-    letter-spacing: 2px;
-
-
-
-}
-
 .animate__animated {
     color: white;
 }
 
+/* TOASTIFY */
 
+.toastify{
+    font-family: 'Questrial', sans-serif;
+    font-weight: bold;
+    background-color: rgb(8, 8, 8);
+    color: white;
+    --toastify-color-progress-light: linear-gradient(
+        to left,
+        #797676,
+        #4e4e4e,
+        #202020,
+        #080808  
+      );
+}
 
 /* From uiverse.io */
-.botonEliminar {
+.deleteButton{
     width: 150px;
     height: 40px;
     cursor: pointer;
@@ -240,18 +203,18 @@
     background: black;
 }
 
-.botonEliminar,
-.botonEliminar span {
+.deleteButton,
+.deleteButton span {
     transition: 200ms;
 }
 
-.botonEliminar .text {
+.deleteButton .text {
     transform: translateX(35px);
     color: white;
     font-size: 14px;
 }
 
-.botonEliminar .icon {
+.deleteButton .icon {
     position: absolute;
     border-left: 1px solid black;
     transform: translateX(110px);
@@ -262,33 +225,34 @@
     justify-content: center;
 }
 
-.botonEliminar svg {
+.deleteButton svg {
     width: 15px;
     fill: #eee;
 }
 
-.botonEliminar:hover {
+.deleteButton:hover {
     background: black;
 }
 
-.botonEliminar:hover .text {
+.deleteButton:hover .text {
     color: transparent;
 }
 
-.botonEliminar:hover .icon {
+.deleteButton:hover .icon {
     width: 150px;
     border-left: none;
     transform: translateX(0);
 }
 
-.botonEliminar:focus {
+.deleteButton:focus {
     outline: none;
 }
 
-.botonEliminar:active .icon svg {
+.deleteButton:active .icon svg {
     transform: scale(0.8);
 }
 
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 1010px) {
 
@@ -302,21 +266,17 @@
         justify-content: space-evenly;
         font-family: 'Questrial', sans-serif;
         font-weight: bold;
-
     }
 
     .contenedorProductosCart {
         width: 100%;
-
     }
 
     .contenedorResumenFormulario {
-
         width: 100%;
     }
 
     .contenedorResumenFormulario .tituloDetalleCompra {
-
         display: flex;
         align-content: center;
         justify-content: center;
@@ -330,37 +290,31 @@
         padding: 15px;
         font-size: 17px;
     }
-
-  
-
 }
 
 @media screen and (max-width: 768px){
 
-    .botonEliminar {
+    .deleteButton {
         width: 2.4em;
         margin: 0;
     }
 
-    .botonEliminar .text {
+    .deleteButton .text {
         display: none;
         margin: 0;
     }
 
-    .botonEliminar .icon {
+    .deleteButton .icon {
       display: none;
-
     } 
 
     .tableMediaQuery{
         background-color: darkorange;
         font-size: 13px;
-
     }
 
     .titulosTabla {
         font-size: 13px;
-
     }
 
 }
@@ -369,15 +323,13 @@
 
     .titulosTabla {
         font-size: 10px;
-
     }
-
 
     .tableMediaQuery{
         font-size: 10px;
     }
 
-    .botonEliminar {
+    .deleteButton {
         width: 2.9em;
         height: 2.9em;
         margin: 0;
@@ -387,12 +339,9 @@
 
 @media screen and (max-width: 360px){
     
-
     .tableMediaQuery{
         font-size: 8px;
     }
-
-
 }
 
 

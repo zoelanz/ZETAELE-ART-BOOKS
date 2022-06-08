@@ -8,7 +8,7 @@ import {GrClose} from "react-icons/gr"
 function CartModal({ show, handleShow, handleClose }) {
   return (
     <>
-      <Button className="buttonFinalizarCompra" variant="primary" onClick={handleShow}>
+      <Button className="buttonEndPurchase" variant="primary" onClick={handleShow}>
         Finalizar compra!
       </Button>
 

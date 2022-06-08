@@ -49,7 +49,7 @@ function ItemListContainer() {
       ) : (
         <>
           {category && (
-            <Link className="buttonVolver" to="/tienda">
+            <Link className="buttonBack" to="/tienda">
               <MdOutlineKeyboardArrowLeft />
               <span>VOLVER</span>
             </Link>

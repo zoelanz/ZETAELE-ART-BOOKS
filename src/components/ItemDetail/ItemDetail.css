@@ -78,6 +78,7 @@ img {
   line-height: 1.5em;
   width: 95%;
   font-family: 'Questrial', sans-serif;
+  border-radius: 6px;
 }
 
 .w-100 {

@@ -7,7 +7,7 @@ h3{
     font-weight: bold;
     color: black;
 }
-.containerContadorTodo{
+.containerCounter1{
     font-family: 'Questrial', sans-serif;
     /* background-color: #9F3E42; */
     display: flex;
@@ -20,7 +20,7 @@ h3{
 
 }
 
-.containerContador{
+.containerCounter{
 
     display: flex;
     justify-content: space-around;
@@ -30,7 +30,7 @@ h3{
     padding: 20px;
 }
 
-.containerBotonCarrito{
+.containerButtonCart{
     /* background-color: rgb(128, 36, 151); */
     padding: 10px;
     display: flex;
@@ -38,25 +38,15 @@ h3{
     width: 70%;
 }
 
-.boton{
+.buttonCounter{
     padding: 5px;
     border:none;
     font-family: 'Questrial', sans-serif;
     font-size: 14px;
 }
 
-/* .botonCarrito{
-    padding: 7px 15px;
-    border-radius: 5px;
-    border: none;
-    font-size: 12px;
-    font-weight: bold;
-    background-color: aquamarine;
-    width: 100%;
-} */
 
-
-.numero{
+.number{
     display: flex;
     justify-content: center;
     align-content: center;

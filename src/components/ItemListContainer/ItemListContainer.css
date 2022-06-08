@@ -1,7 +1,6 @@
 
-
-
    /* From uiverse.io by @mrhyddenn */
+   
 .loader {
   position: absolute;
   top: 50%;
@@ -60,7 +59,8 @@
 
    
   /* From uiverse.io by @Jedi-hongbin */
-.buttonVolver {
+
+.buttonBack {
     font-family: 'Questrial', sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -78,12 +78,11 @@
     margin-left: 10px;
     text-decoration: none;
     color: black;
-   } */
+   } 
    
   
    
-   .buttonVolver:hover {
-    /* box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff; */
+   .buttonBack:hover {
     transform: translateX(-4px);
     background-color: transparent;
     color: black;

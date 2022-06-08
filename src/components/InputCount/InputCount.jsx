@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./InputCount.css"
 
 
 
@@ -9,7 +8,7 @@ function InputCount() {
     <div className="containerChangeButton w-75 m-auto justify-content-between mt-5">
     <Link to= "/carrito">
 
-    <button className="botonesOpciones">
+    <button className="buttonOptions">
         Terminar compra!
     </button>
 
@@ -18,7 +17,7 @@ function InputCount() {
 
     <Link to= "/tienda">
 
-    <button className="botonesOpciones" >
+    <button className="buttonOptions" >
         Seguir comprando!
     </button>
 

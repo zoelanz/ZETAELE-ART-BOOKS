@@ -4,7 +4,7 @@ import "./HomeContent.css";
 
 function HomeContent() {
   return (
-    <div className="containerGaleria">
+    <div className="containerGallery">
       <div className="item item1"></div>
       <div className="item item2"></div>
       <div className="item item3"></div>

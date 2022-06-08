@@ -11,7 +11,7 @@ function NavBar() {
        <NavLink activeclassname='currentCategory' className='text-white' to={`/tienda`}>
        <h1>ZETAELE | Art Books</h1>
        </NavLink>
-      <div className="navegador">
+      <div>
         <nav>
           <ul>
             <Link to={`/tienda`}>
@@ -51,7 +51,6 @@ function NavBar() {
   );
 }
 
-export default NavBar; // exporto el navbar
-
+export default NavBar; 
 
 

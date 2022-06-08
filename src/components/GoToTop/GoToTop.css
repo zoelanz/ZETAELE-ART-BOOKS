@@ -1,0 +1,45 @@
+.goToTop{
+    background-color: rgb(8, 8, 8);
+    color: white;
+    position: relative;
+}
+
+
+  .icon-position{
+    position: fixed;
+    bottom: 40px;
+    right: 25px;
+    z-index: 20;
+  }
+  .icon-style{
+    background-color:rgb(8, 8, 8) ;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    color: #fff;
+    cursor: pointer;
+    animation: movebtn 3s ease-in-out infinite;
+    transition: all .5s ease-in-out;
+  }
+  .icon-style:hover{
+    animation: none;
+    background: #fff;
+    color: rgb(8, 8, 8);
+  }
+  @keyframes movebtn {
+    0%{
+      transform: translateY(0px);
+    }
+    25%{
+      transform: translateY(20px);
+    }
+    50%{
+      transform: translateY(0px);
+    }
+    75%{
+      transform: translateY(-20px);
+    }
+    100%{
+      transform: translateY(0px);
+    }
+  }

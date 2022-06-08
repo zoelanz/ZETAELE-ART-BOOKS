@@ -5,35 +5,35 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 function ItemCount({ stock, initial, onAdd }) {
   const [count, setCount] = useState(initial);
 
-  function contadorMas() {
+  function counterPlus() {
     if (count < stock) {
       setCount(count + 1);
     }
   }
 
-  function contadorMenos() {
+  function counterMinus() {
     if (count > initial) {
       setCount(count - 1);
     }
   }
 
   return (
-    <div className="containerContadorTodo">
+    <div className="containerCounter1">
       <h3>STOCK DISPONIBLE: {stock}</h3>
 
-      <div className="containerContador">
-        <button className="boton" onClick={contadorMenos}>
+      <div className="containerCounter">
+        <button className="buttonCounter" onClick={counterMinus}>
           <FaMinus />
         </button>
 
-        <p className="numero">{count}</p>
+        <p className="number">{count}</p>
 
-        <button className="boton" onClick={contadorMas}>
+        <button className="buttonCounter" onClick={counterPlus}>
           <FaPlus />
         </button>
       </div>
 
-      <div className="containerBotonCarrito">
+      <div className="containerButtonCart">
         <button className="cta" onClick={()=>onAdd(count)} >
           <span className="hover-underline-animation"> AÑADIR AL CARRITO </span>
           <svg

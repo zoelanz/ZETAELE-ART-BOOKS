@@ -2,9 +2,11 @@ import "./Form.css";
 import { Button } from "react-bootstrap";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { ToastContainer } from 'react-toastify';
+
 
 function Form() {
-  const { purchaseOrder } = useContext(CartContext);
+  const { purchaseOrder} = useContext(CartContext);
 
   return (
     <div className="contenedorFormulario">
@@ -61,6 +63,8 @@ function Form() {
           </div>
           <div>
           <p className="required">*Obligatorio</p>
+
+
           <Button
             // type="submit"
             onClick={(e) => purchaseOrder(e)}
@@ -69,8 +73,8 @@ function Form() {
           >
             FINALIZAR COMPRA
           </Button>
+          <ToastContainer/>
         
-
           </div>
 
          

@@ -12,14 +12,14 @@
 
 }
 
-.tituloCard {
+.titleCard {
     font-size: 15px;
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
     text-align: center;
 }
 
-.textoPrice{
+.textPrice{
     font-size: 17px;
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
@@ -27,7 +27,7 @@
 
 }
 
-.imagenCard {
+.imgCard {
     width: 216px;
     height: 291px;
     transition: all ease 0.8s;

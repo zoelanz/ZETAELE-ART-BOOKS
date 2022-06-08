@@ -1,5 +1,5 @@
 
-.buttonFinalizarCompra {
+.buttonEndPurchase {
     background-color: black;
     color: white;
     border-radius: 7px;
@@ -11,13 +11,13 @@
 
 }
 
-.buttonFinalizarCompra:hover{
+.buttonEndPurchase:hover{
     background-color: black;
     letter-spacing: 4px;
 }
 
 
-.buttonFinalizarCompra:focus{
+.buttonEndPurchase:focus{
     background-color: rgb(0, 0, 0);
     border-color: #000000;
     box-shadow: none;
@@ -25,12 +25,12 @@
 
 }
 
-.buttonFinalizarCompra:focus-visible{
+.buttonEndPurchase:focus-visible{
   display: none;
 
 }
 
-.buttonFinalizarCompra:active{
+.buttonEndPurchase:active{
    border: transparent;
    border-color: black;
    box-shadow: none;

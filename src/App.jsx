@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-
-
 import "bootstrap/dist/css/bootstrap.min.css"; 
 import "./App.css";
 
@@ -13,6 +11,7 @@ import Cart from "./components/Cart/Cart";
 import HomeContent from "./components/HomeContent/HomeContent";
 import Footer from "./components/footer/footer";
 import CartContextProvider from "./context/CartContext";
+import GoToTop from "./components/GoToTop/GoToTop";
 
 
 function App() {
@@ -34,8 +33,10 @@ function App() {
 
             <Route path="/*" element={<Navigate to="/tienda" replace />} />
           </Routes>
+          
+          <GoToTop />
 
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </BrowserRouter>
     </CartContextProvider>
