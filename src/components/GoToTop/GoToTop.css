@@ -1,18 +1,16 @@
 .goToTop{
-    background-color: rgb(8, 8, 8);
     color: white;
     position: relative;
 }
 
-
   .icon-position{
     position: fixed;
-    bottom: 40px;
+    bottom: 120px;
     right: 25px;
     z-index: 20;
   }
   .icon-style{
-    background-color:rgb(8, 8, 8) ;
+    background-color:rgb(8, 8, 8);
     border-radius: 50%;
     height: 45px;
     width: 45px;

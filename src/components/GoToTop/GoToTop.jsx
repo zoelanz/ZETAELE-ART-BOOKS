@@ -23,10 +23,9 @@ function GoToTop() {
         });
     };
 
-
   return (
     <div className="goToTop">
-      <FaAngleUp className="icon-position icon-style" onClick={goToTop} />
+     {showTopBtn && <FaAngleUp className="icon-position icon-style" onClick={goToTop} />}
     </div>
   );
 }

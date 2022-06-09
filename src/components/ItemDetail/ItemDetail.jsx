@@ -27,7 +27,7 @@ function ItemDetail({ product, onAdd}) {
 
   return (
     <div className="cardDetail">
-      <div>
+      <div className="cardImg">
       <img
                 className=" w-100"
                 src={product.img}

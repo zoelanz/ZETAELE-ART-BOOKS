@@ -6,11 +6,16 @@ import { ToastContainer } from 'react-toastify';
 
 
 function Form() {
-  const { purchaseOrder} = useContext(CartContext);
+
+  const {purchaseOrder} = useContext(CartContext);
+
 
   return (
+
+  
     <div className="contenedorFormulario">
       <form action="">
+
         <div className="row">
           <div className="col-100">
             <input
@@ -61,6 +66,17 @@ function Form() {
               className="w-100 input"
             />
           </div>
+
+          <div className="col-75">
+            <input
+              required
+              id="formEmailRepeat"
+              type="email"
+              placeholder="Valide su Email*"
+              className="w-100 input"
+            />
+          </div>
+
           <div>
           <p className="required">*Obligatorio</p>
 

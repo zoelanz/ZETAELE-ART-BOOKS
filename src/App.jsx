@@ -34,7 +34,7 @@ function App() {
             <Route path="/*" element={<Navigate to="/tienda" replace />} />
           </Routes>
           
-          <GoToTop />
+          <GoToTop />  
 
           <Footer />
         </div>

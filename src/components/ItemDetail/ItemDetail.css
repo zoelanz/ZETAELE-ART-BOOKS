@@ -81,14 +81,19 @@ img {
   border-radius: 6px;
 }
 
+.cardImg{
+  width: 90%;
+  /* background-color: darkslategrey; */
+  display: flex;
+  object-fit: contain;
+  justify-content: center;
+}
+
 .w-100 {
   width: 80% !important;
 }
 
-.containerImgCarrousel {
-  display: flex;
-  justify-content: center;
-}
+
 
 
 @media screen and (min-width: 997px) {
@@ -127,6 +132,7 @@ img {
 .colors {
   text-transform: UPPERCASE;
   font-weight: bold;
+  font-size: 21px;
 }
 
 .price {
@@ -135,10 +141,6 @@ img {
   text-align: center;
 }
 
-.product-description {
-  margin-top: 30px;
-  width: 100%;
-}
 
 
 .checked,
@@ -151,6 +153,10 @@ img {
 .product-description {
   font-size: 15px;
   text-align: justify;
+  margin-top: 30px;
+  width: 100%;
+  font-size: 17px;
+  line-height: 28px;
 }
 
 .product-title {

@@ -5,7 +5,6 @@
     justify-content: space-between;
     color: white;
     border-top: 2px solid white;
-    /* margin-top: 15px; */
 
 }
 
@@ -19,11 +18,7 @@
 
 .network {
     padding: 0 30px;
-
-
 }
-
-
 
 /* From uiverse.io by @fanishah */
 .button {

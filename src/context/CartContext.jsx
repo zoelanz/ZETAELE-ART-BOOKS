@@ -1,23 +1,23 @@
+
 import { createContext, useState } from "react";
 
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-import 'react-toastify/dist/ReactToastify.css';
-
+import "react-toastify/dist/ReactToastify.css";
 
 export const CartContext = createContext([]);
 
 function CartContextProvider({ children }) {
-  //creo los estados y funciones globales
+
 
   const [cartList, setcartList] = useState([]);
 
   function addToCart(item) {
     const index = cartList.findIndex((product) => product.id === item.id);
 
-    // CON ESTE IF LOGRO QUE NO SE DUPLIQUE EL PRODUCTO Y QUE SUME EN CANTIDAD SI AGREGO PRODCUTOS
+    //THE PRODUCT WILL NOT BE SHOWN TWICE
 
     if (index !== -1) {
       const previousQuantity = cartList[index].quantity;
@@ -50,9 +50,8 @@ function CartContextProvider({ children }) {
     );
   }
 
-  function toastify(){
-
-    toast('Su orden esta siendo procesada!', {
+  function toastify() {
+    toast("Su orden esta siendo procesada!", {
       position: "top-center",
       autoClose: 2500,
       hideProgressBar: false,
@@ -60,15 +59,40 @@ function CartContextProvider({ children }) {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      className: 'toastify'
-      });
-
-
-
+      className: "toastify",
+    });
   }
 
+  function toastify() {
+    toast("Su orden esta siendo procesada!", {
+      position: "top-center",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      className: "toastify",
+    });
+  }
+
+
+  
+  function toastify2() {
+    toast("REVISE SUS DATOS", {
+      position: "top-center",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      className: "toastify",
+    });
+  }
+
+
   function purchaseOrder(e) {
-    //obtener datos del input y guardarlos en variables
 
     const inputName = document.getElementById("formName").value;
 
@@ -80,45 +104,55 @@ function CartContextProvider({ children }) {
 
     const inputEmail = document.getElementById("formEmail").value;
 
-    if (
-      inputName != "" &&
-      inputSurname != "" &&
-      inputEmail != "" &&
-      inputPhone != "" &&
-      inputAddress != ""
-    ) {
-      e.preventDefault();
-      let order = {};
+    const inputEmailRepeat = document.getElementById("formEmailRepeat").value;
 
-      order.buyer = {
-        name: inputName,
-        surname: inputSurname,
-        phone: inputPhone,
-        address: inputAddress,
-        email: inputEmail,
-      };
+    if (inputEmail === inputEmailRepeat) {
+      if (
+        inputName != "" &&
+        inputSurname != "" &&
+        inputEmail != "" &&
+        inputEmailRepeat != "" &&
+        inputPhone != "" &&
+        inputAddress != ""
+      ) {
+        e.preventDefault();
+        let order = {};
 
-      order.products = cartList.map((cartProduct) => {
-        const id = cartProduct.id;
-        const name = cartProduct.name;
-        const quantity = cartProduct.quantity;
-        const price = cartProduct.price * cartProduct.quantity;
+        order.buyer = {
+          name: inputName,
+          surname: inputSurname,
+          phone: inputPhone,
+          address: inputAddress,
+          email: inputEmail,
+        };
 
-        return { id, name, quantity, price };
-      });
+        order.date = new Date();
 
-      order.total = totalPrice();
+        order.products = cartList.map((cartProduct) => {
+          const id = cartProduct.id;
+          const name = cartProduct.name;
+          const quantity = cartProduct.quantity;
+          const price = cartProduct.price * cartProduct.quantity;
 
-      const db = getFirestore();
-      const queryCollectionOrders = collection(db, "Purchase order");
-      addDoc(queryCollectionOrders, order).then((resp) => console.log(resp))
-      .then(toastify())
-      .finally(setTimeout(() => {
-        window.location.href = "/tienda" 
-      }, 3500)
-       )
+          return { id, name, quantity, price };
+        });
+
+        order.total = totalPrice();
+
+        const db = getFirestore();
+        const queryCollectionOrders = collection(db, "Purchase order");
+        addDoc(queryCollectionOrders, order)
+          .then((resp) => console.log(resp))
+          .then(toastify())
+          .finally(
+            setTimeout(() => {
+              window.location.href = "/tienda";
+            }, 3500)
+          );
+      }
+    } else {
+     toastify2();
     }
-
   }
 
   return (
@@ -132,7 +166,7 @@ function CartContextProvider({ children }) {
           totalQuantity,
           totalPrice,
           purchaseOrder,
-          toastify
+          toastify,
         }}
       >
         {children}
