@@ -5,7 +5,7 @@ import ItemList from "../itemList/itemList";
 import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
-import {getFirestore, collection, getDocs,query,where,addDoc} from "firebase/firestore"
+import {getFirestore, collection, getDocs,query,where} from "firebase/firestore"
 
 
 
@@ -43,18 +43,25 @@ function ItemListContainer() {
 
 
   return (
-    <div>
+    <div >
       {loading ? (
-        <div className="loader"></div>
+        <div className="containerLoader">
+             <div className="loader"></div>
+        </div>
+     
       ) : (
         <>
           {category && (
             <Link className="buttonBack" to="/tienda">
+           
               <MdOutlineKeyboardArrowLeft />
               <span>VOLVER</span>
+
             </Link>
           )}
+       
           <ItemList productsFetch={product} />
+         
         </>
       )}
     </div>

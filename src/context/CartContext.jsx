@@ -1,17 +1,23 @@
-
 import { createContext, useState } from "react";
 
 import { toast } from "react-toastify";
 
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  documentId,
+  writeBatch,
+  getDocs,
+  where,
+  query,
+} from "firebase/firestore";
 
 import "react-toastify/dist/ReactToastify.css";
 
 export const CartContext = createContext([]);
 
 function CartContextProvider({ children }) {
-
-
   const [cartList, setcartList] = useState([]);
 
   function addToCart(item) {
@@ -50,10 +56,36 @@ function CartContextProvider({ children }) {
     );
   }
 
-  function toastify() {
-    toast("Su orden esta siendo procesada!", {
+  // function toastify() {
+  //   toast("Su orden esta siendo procesada!", {
+  //     position: "top-center",
+  //     autoClose: 2500,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     className: "toastify",
+  //   });
+  // }
+
+  // function toastify2() {
+  //   toast("REVISE SUS DATOS", {
+  //     position: "top-center",
+  //     autoClose: 2500,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     className: "toastify",
+  //   });
+  // }
+
+  function toastify(text, time) {
+    toast(text, {
       position: "top-center",
-      autoClose: 2500,
+      autoClose: time,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -63,37 +95,33 @@ function CartContextProvider({ children }) {
     });
   }
 
-  function toastify() {
-    toast("Su orden esta siendo procesada!", {
-      position: "top-center",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      className: "toastify",
-    });
+  async function updateStock() {
+    const db = getFirestore();
+    const queryCollectionStock = collection(db, "products");
+    const queryUpdateStock = await query(
+      queryCollectionStock,
+      where(
+        documentId(),
+        "in",
+        cartList.map((product) => product.id)
+      )
+    );
+    const batch = writeBatch(db);
+    await getDocs(queryUpdateStock)
+      .then((resp) =>
+        resp.docs.forEach((resp) =>
+          batch.update(resp.ref, {
+            stock:
+              resp.data().stock -
+              cartList.find((product) => product.id === resp.id).quantity,
+          })
+        )
+      )
+      .catch((err) => console.log(err));
+    batch.commit();
   }
-
-
-  
-  function toastify2() {
-    toast("REVISE SUS DATOS", {
-      position: "top-center",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      className: "toastify",
-    });
-  }
-
 
   function purchaseOrder(e) {
-
     const inputName = document.getElementById("formName").value;
 
     const inputSurname = document.getElementById("formSurname").value;
@@ -139,19 +167,27 @@ function CartContextProvider({ children }) {
 
         order.total = totalPrice();
 
+        updateStock();
+
         const db = getFirestore();
         const queryCollectionOrders = collection(db, "Purchase order");
         addDoc(queryCollectionOrders, order)
-          .then((resp) => console.log(resp))
-          .then(toastify())
-          .finally(
+          .then(toastify("Su orden esta siendo procesada!", 2500))
+          .then((resp) =>
+            toastify(
+              `GRACIAS POR SU COMPRA! Su códido de orden es: ${resp.id}`,
+              5500
+            )
+          )
+          .catch((err) => console.log(err))
+          .finally(() => {
             setTimeout(() => {
               window.location.href = "/tienda";
-            }, 3500)
-          );
+            }, 8000);
+          });
       }
     } else {
-     toastify2();
+      toastify("REVISE SUS DATOS", 2500);
     }
   }
 

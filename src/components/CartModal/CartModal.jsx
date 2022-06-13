@@ -29,7 +29,6 @@ function CartModal({ show, handleShow, handleClose }) {
            <Form />
           </Modal.Body>
       
-
         <Modal.Footer className="modalFooter">
          
         </Modal.Footer>

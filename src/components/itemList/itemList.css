@@ -6,15 +6,11 @@
     justify-content: space-evenly;
     margin: 0;
     display: grid;
-  
-
+    margin-top: 10px;
 }
 
 .containerCard{
     display: flex;
     justify-content: center;
-   
-  
-
 }
 

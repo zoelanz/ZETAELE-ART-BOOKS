@@ -1,7 +1,7 @@
 import { BsBag } from "react-icons/bs";
 import "./CartWidget.css";
 
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { CartContext } from "../../context/CartContext";
 
 

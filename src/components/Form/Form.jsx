@@ -2,20 +2,18 @@ import "./Form.css";
 import { Button } from "react-bootstrap";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+
+
 
 
 function Form() {
-
-  const {purchaseOrder} = useContext(CartContext);
+  const { purchaseOrder} = useContext(CartContext);
 
 
   return (
-
-  
-    <div className="contenedorFormulario">
+    <div className="containerForm">
       <form action="">
-
         <div className="row">
           <div className="col-100">
             <input
@@ -78,22 +76,22 @@ function Form() {
           </div>
 
           <div>
-          <p className="required">*Obligatorio</p>
+            <p className="required">*Obligatorio</p>
+
+            <Button
+              // type="submit"
+              onClick={(e) => {
+                purchaseOrder(e)
 
 
-          <Button
-            // type="submit"
-            onClick={(e) => purchaseOrder(e)}
-            className="modalButton"
-            variant="secondary"
-          >
-            FINALIZAR COMPRA
-          </Button>
-          <ToastContainer/>
-        
+              }}
+              className="modalButton"
+              variant="secondary"
+            >
+              FINALIZAR COMPRA
+            </Button>
+            <ToastContainer />
           </div>
-
-         
         </div>
       </form>
     </div>

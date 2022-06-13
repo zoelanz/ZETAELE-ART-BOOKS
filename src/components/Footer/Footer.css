@@ -1,23 +1,23 @@
 .footer {
     background-color: rgb(8, 8, 8);
-    height: 95px;
+    height: min-content;
     display: flex;
     justify-content: space-between;
     color: white;
-    border-top: 2px solid white;
+    border-top: 1px solid white;
 
 }
 
 
 .copyright {
     margin-top: 30px;
-    padding: 0 30px;
+    padding: 10px 30px;
     font-family: 'Questrial', sans-serif;
 
 }
 
 .network {
-    padding: 0 30px;
+    padding: 10px 30px;
 }
 
 /* From uiverse.io by @fanishah */
@@ -27,7 +27,6 @@
     font-weight: 400;
     background: #ffffff;
     color: rgb(0, 0, 0);
-    padding: 0.2em 0.2em;
     font-size: 17px;
     border: none;
     border-radius: 0.7em;
@@ -38,7 +37,7 @@
     align-items: center;
     overflow: hidden;
     height: 2.5em;
-    padding-left: 3em;
+    padding-left: 3em ;
     padding-right: 0.7em;
     font-family: 'Questrial', sans-serif;
 

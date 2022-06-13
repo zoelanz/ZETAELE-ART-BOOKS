@@ -1,6 +1,11 @@
 
    /* From uiverse.io by @mrhyddenn */
    
+.containerLoader{
+  height: 500px;
+
+}
+
 .loader {
   position: absolute;
   top: 50%;
@@ -87,3 +92,5 @@
     background-color: transparent;
     color: black;
    }
+
+ 

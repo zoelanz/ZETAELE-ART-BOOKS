@@ -32,8 +32,7 @@ function ItemDetail({ product, onAdd}) {
                 className=" w-100"
                 src={product.img}
                 alt="First slide"
-              />
-       
+              />   
       </div>
       <div className="container-fluid">
         <div className="wrapper row">
