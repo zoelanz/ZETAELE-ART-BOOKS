@@ -19,15 +19,12 @@ function Cart() {
   const handleClose = () => setShow(false);
 
 
-
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
     setShow(true);
   }
   const { cartList, emptyCart, deleteProduct, totalPrice, totalQuantity } =
     useContext(CartContext);
-
-
 
   return cartList.length ? (
     <div className="containerCart">
@@ -54,7 +51,7 @@ function Cart() {
                   <td>{product.quantity}</td>
                   <td>
                     <button
-                      class="noselect deleteButton"
+                      className="noselect deleteButton"
                       onClick={() => deleteProduct(product.id)}
                     >
                       <span class="text">Eliminar</span>
@@ -88,20 +85,24 @@ function Cart() {
         <div className="containerResumePurchase">
           <table className="table purchaseDetail">
             <thead>
-              <th className="titlePurchaseDetail spacing" scope="col">
-                <p>DETALLE DE COMPRA</p>{" "}
-              </th>
+              <tr className="titlePurchaseDetail spacing" scope="col">
+                <th><p>DETALLE DE COMPRA</p></th>
+              </tr>
             </thead>
             <tbody className="textOrder">
-              <td>
-                <p className="spacing">
+              <tr>
+                <th>
+                   <p className="spacing">
                   Cantidad de productos:
                   {totalQuantity() !== 0 && totalQuantity()}
                 </p>
-                <p className="spacing">
+                </th>
+               <th>
+               <p className="spacing">
                   TOTAL: US${totalPrice() !== 0 && totalPrice()}
                 </p>
-              </td>
+               </th>
+              </tr>
             </tbody>
           </table>
           <CartModal

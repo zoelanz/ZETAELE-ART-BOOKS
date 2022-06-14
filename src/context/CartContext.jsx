@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState,useEffect } from "react";
 
 import { toast } from "react-toastify";
 
@@ -28,18 +28,26 @@ function CartContextProvider({ children }) {
     if (index !== -1) {
       const previousQuantity = cartList[index].quantity;
       cartList[index].quantity = previousQuantity + item.quantity;
-      setcartList([...cartList]);
+      let cart=[...cartList]
+      setcartList(cart);
+      setLocalStorageCart(cart)
     } else {
-      setcartList([...cartList, item]);
+      let cart=[...cartList, item]
+      setcartList(cart);
+      setLocalStorageCart(cart)
     }
   }
 
   function deleteProduct(id) {
-    setcartList(cartList.filter((prod) => prod.id !== id));
+    let cart=cartList.filter((prod) => prod.id !== id)
+    setcartList(cart);
+    setLocalStorageCart(cart)
+
   }
 
   function emptyCart() {
     setcartList([]);
+    localStorage.clear();
   }
 
   function totalQuantity() {
@@ -55,32 +63,6 @@ function CartContextProvider({ children }) {
       0
     );
   }
-
-  // function toastify() {
-  //   toast("Su orden esta siendo procesada!", {
-  //     position: "top-center",
-  //     autoClose: 2500,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     className: "toastify",
-  //   });
-  // }
-
-  // function toastify2() {
-  //   toast("REVISE SUS DATOS", {
-  //     position: "top-center",
-  //     autoClose: 2500,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     className: "toastify",
-  //   });
-  // }
 
   function toastify(text, time) {
     toast(text, {
@@ -169,6 +151,7 @@ function CartContextProvider({ children }) {
 
         updateStock();
 
+  
         const db = getFirestore();
         const queryCollectionOrders = collection(db, "Purchase order");
         addDoc(queryCollectionOrders, order)
@@ -177,7 +160,8 @@ function CartContextProvider({ children }) {
             toastify(
               `GRACIAS POR SU COMPRA! Su códido de orden es: ${resp.id}`,
               5500
-            )
+            ),
+            localStorage.clear()
           )
           .catch((err) => console.log(err))
           .finally(() => {
@@ -190,6 +174,28 @@ function CartContextProvider({ children }) {
       toastify("REVISE SUS DATOS", 2500);
     }
   }
+
+  
+  function setLocalStorageCart(cart){
+
+    localStorage.setItem("cart",JSON.stringify(cart))
+
+  }
+
+  function getLocalStorageCart(){
+
+    let localStorageCart= JSON.parse(localStorage.getItem("cart"))
+    localStorageCart ? setcartList(localStorageCart):setLocalStorageCart([])
+    
+  }
+
+  useEffect(() => {
+
+    getLocalStorageCart()
+    
+
+  },[] )
+  
 
   return (
     <div>
