@@ -1,71 +1,58 @@
-
-import "./ItemListContainer.css";
-
-import ItemList from "../itemList/itemList";
 import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
-import {getFirestore, collection, getDocs,query,where} from "firebase/firestore"
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
+import ItemList from "../itemList/itemList";
 
+import "./ItemListContainer.css";
 
 function ItemListContainer() {
   const [product, setProduct] = useState({});
-
   const [loading, setLoading] = useState(true);
 
   const { category } = useParams();
 
+  useEffect(() => {
+    const db = getFirestore();
+    const queryCollection = collection(db, "products");
 
-    useEffect(() => {
-
-      const db= getFirestore() 
- 
-      const queryCollection = collection (db, "products")
-
-    if(!category){
-     getDocs(queryCollection)
-     .then(resp=>setProduct(resp.docs.map(prod=> ({...prod.data(),id: prod.id}) ) ) )
-     .catch((error)=>(error))
-     .finally(()=>setLoading(false))
-
-    }else{
-
-     const queryCollectionFilter = query(queryCollection, where("category", '==', category));
-     getDocs(queryCollectionFilter)
-       .then((resp) =>
-         setProduct(resp.docs.map((prod) => ({...prod.data(),id: prod.id})))
-       )
-       .catch((err) => console.error(err))
-       .finally(() => setLoading(false));
-}}, [category]);
-
-
+    const queryCollectionFilter = category
+      ? query(queryCollection, where("category", "==", category))
+      : queryCollection;
+    getDocs(queryCollectionFilter)
+      .then((resp) =>
+        setProduct(resp.docs.map((prod) => ({ ...prod.data(), id: prod.id })))
+      )
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, [category]);
 
   return (
-    <div >
+    <div>
       {loading ? (
         <div className="containerLoader">
-             <div className="loader"></div>
+          <div className="loader"></div>
         </div>
-     
       ) : (
         <>
           {category && (
             <Link className="buttonBack" to="/tienda">
-           
               <MdOutlineKeyboardArrowLeft />
-              <span>VOLVER</span>
-
+              <span>INICIO</span>
             </Link>
           )}
-       
           <ItemList productsFetch={product} />
-         
         </>
       )}
     </div>
   );
 }
 
-export default ItemListContainer
+export default ItemListContainer;

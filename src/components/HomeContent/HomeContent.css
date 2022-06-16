@@ -1,5 +1,5 @@
 .containerGallery {
-    background-color: transparent;
+    background-color: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -8,7 +8,6 @@
     top: 0;
     height: 100vh;
     width: 100vw;
-    
 }
 
 .buttonHome{
@@ -37,103 +36,65 @@
 .buttonHome:hover{
     color: black;
     box-shadow: inset 500px 0 0 0 #fde0397b;
-  
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
-
-
-
 }
 
 .item {
     height: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .item1 {
     background-image: url(../../img/MODA/HelmutNewton.Polaroids.jpg);
-    background-size: cover;
     grid-column: 1/2;
     grid-row: 1/2;
-
 }
 
 .item2 {
-
     background-image: url(../../img/PORTADA/dogs2.jpg);
-    background-size: cover;
     grid-column: 2/4;
     grid-row: 1/2;
-
-
-
-
 }
 
 .item3 {
-
     background-image: url(../../img/ARTE/warholBasquiat.jpg);
-    background-size: cover;
     grid-column: 4/5;
     grid-row: 1/2;
-
-
-
 }
 
 .item4 {
-
     background-image: url(../../img/ARQ&DISEÑO/cabins.jpg);
-    background-size: cover;
     grid-column: 5/6;
     grid-row: 1/2;
-
-
-
 }
 
 .item5 {
-
     background-image: url(../../img/FOTOGRAFIA/peterBeard.jpg);
-    background-size: cover;
     grid-column: 1/2;
     grid-row: 2/3;
-
-
-
 }
 
-
 .item6 {
-
     background-image: url(../../img/ARTE/frida.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
     grid-column: 2/3;
     grid-row: 2/3;
-
-
-
 }
 
 .item7 {
-
     background-image: url(../../img/PORTADA/dogs1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     grid-column: 3/5;
     grid-row: 2/3;
-
-
 }
 
 .item8 {
-
     background-image: url(../../img/ARQ&DISEÑO/livingInProvence.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     grid-column: 5/6;
     grid-row: 2/3;
-
 }
+
+
 
 

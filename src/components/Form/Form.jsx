@@ -1,15 +1,13 @@
-import "./Form.css";
 import { Button } from "react-bootstrap";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { ToastContainer } from "react-toastify";
 
-
-
+import "./Form.css";
 
 function Form() {
+  
   const { purchaseOrder} = useContext(CartContext);
-
 
   return (
     <div className="containerForm">
@@ -24,7 +22,6 @@ function Form() {
               className="w-100 input"
             />
           </div>
-
           <div className="col-75">
             <input
               required
@@ -34,7 +31,6 @@ function Form() {
               className="w-100 input"
             />
           </div>
-
           <div className="col-75">
             <input
               required
@@ -44,7 +40,6 @@ function Form() {
               className="w-100 input"
             />
           </div>
-
           <div className="col-75">
             <input
               required
@@ -54,7 +49,6 @@ function Form() {
               className="w-100 input"
             />
           </div>
-
           <div className="col-75">
             <input
               required
@@ -64,7 +58,6 @@ function Form() {
               className="w-100 input"
             />
           </div>
-
           <div className="col-75">
             <input
               required
@@ -74,16 +67,11 @@ function Form() {
               className="w-100 input"
             />
           </div>
-
           <div>
             <p className="required">*Obligatorio</p>
-
             <Button
-              // type="submit"
               onClick={(e) => {
                 purchaseOrder(e)
-
-
               }}
               className="modalButton"
               variant="secondary"

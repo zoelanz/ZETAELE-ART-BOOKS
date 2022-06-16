@@ -1,7 +1,6 @@
 .containerForm {
     font-family: 'Questrial', sans-serif;
     text-align: center;
-
 }
 
 .input {
@@ -17,20 +16,16 @@
     outline: none;
 }
 
-
-
 ::placeholder {
     color: white;
-    /* font-weight: bold; */
-
 }
 
 .required{
     margin-top: 20px;
     color: white;
 }
-.modalButton {
 
+.modalButton {
     width: 40%;
     background-color: rgb(8, 8, 8);
     border: 1px solid rgb(255, 255, 255);

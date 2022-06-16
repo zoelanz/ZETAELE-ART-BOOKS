@@ -1,4 +1,4 @@
-import { createContext, useState,useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 
 import { toast } from "react-toastify";
 
@@ -23,33 +23,35 @@ function CartContextProvider({ children }) {
   function addToCart(item) {
     const index = cartList.findIndex((product) => product.id === item.id);
 
-    //THE PRODUCT WILL NOT BE SHOWN TWICE
+    //THE PRODUCT WILL NOT BE SHOWN TWICE IN THE CART
 
     if (index !== -1) {
-      const previousQuantity = cartList[index].quantity;
+      let previousQuantity = cartList[index].quantity;
       cartList[index].quantity = previousQuantity + item.quantity;
-      let cart=[...cartList]
+      let cart = [...cartList];
       setcartList(cart);
-      setLocalStorageCart(cart)
+      setLocalStorageCart(cart);
     } else {
-      let cart=[...cartList, item]
+      let cart = [...cartList, item];
       setcartList(cart);
-      setLocalStorageCart(cart)
+      setLocalStorageCart(cart);
     }
   }
 
+  //FUNCTION TO DELETE ONE PRODUCT IN PARTICULAR
   function deleteProduct(id) {
-    let cart=cartList.filter((prod) => prod.id !== id)
+    let cart = cartList.filter((prod) => prod.id !== id);
     setcartList(cart);
-    setLocalStorageCart(cart)
-
+    setLocalStorageCart(cart);
   }
 
+  //FUNCTION TO EMPTY CART
   function emptyCart() {
     setcartList([]);
     localStorage.clear();
   }
 
+  //TOTAL QUANTITY , THIS WILL BE SHOWN IN THE RESUME PURCHASE
   function totalQuantity() {
     return cartList.reduce(
       (counter, product) => (counter += product.quantity),
@@ -57,6 +59,7 @@ function CartContextProvider({ children }) {
     );
   }
 
+  //TOTAL PRICE , THIS WILL BE SHOWN IN THE RESUME PURCHASE
   function totalPrice() {
     return cartList.reduce(
       (counter, product) => counter + product.quantity * product.price,
@@ -105,15 +108,10 @@ function CartContextProvider({ children }) {
 
   function purchaseOrder(e) {
     const inputName = document.getElementById("formName").value;
-
     const inputSurname = document.getElementById("formSurname").value;
-
     const inputPhone = document.getElementById("formPhone").value;
-
     const inputAddress = document.getElementById("formAddress").value;
-
     const inputEmail = document.getElementById("formEmail").value;
-
     const inputEmailRepeat = document.getElementById("formEmailRepeat").value;
 
     if (inputEmail === inputEmailRepeat) {
@@ -143,7 +141,6 @@ function CartContextProvider({ children }) {
           const name = cartProduct.name;
           const quantity = cartProduct.quantity;
           const price = cartProduct.price * cartProduct.quantity;
-
           return { id, name, quantity, price };
         });
 
@@ -151,16 +148,16 @@ function CartContextProvider({ children }) {
 
         updateStock();
 
-  
         const db = getFirestore();
         const queryCollectionOrders = collection(db, "Purchase order");
         addDoc(queryCollectionOrders, order)
           .then(toastify("Su orden esta siendo procesada!", 2500))
-          .then((resp) =>
-            toastify(
-              `GRACIAS POR SU COMPRA! Su códido de orden es: ${resp.id}`,
-              5500
-            ),
+          .then(
+            (resp) =>
+              toastify(
+                `GRACIAS POR SU COMPRA! Su códido de orden es: ${resp.id}`,
+                5500
+              ),
             localStorage.clear()
           )
           .catch((err) => console.log(err))
@@ -175,27 +172,18 @@ function CartContextProvider({ children }) {
     }
   }
 
-  
-  function setLocalStorageCart(cart){
-
-    localStorage.setItem("cart",JSON.stringify(cart))
-
+  function setLocalStorageCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 
-  function getLocalStorageCart(){
-
-    let localStorageCart= JSON.parse(localStorage.getItem("cart"))
-    localStorageCart ? setcartList(localStorageCart):setLocalStorageCart([])
-    
+  function getLocalStorageCart() {
+    let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+    localStorageCart ? setcartList(localStorageCart) : setLocalStorageCart([]);
   }
 
   useEffect(() => {
-
-    getLocalStorageCart()
-    
-
-  },[] )
-  
+    getLocalStorageCart();
+  }, []);
 
   return (
     <div>

@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { ImHeartBroken } from "react-icons/im";
 
-
-
 import CartModal from "../CartModal/CartModal";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -17,7 +15,6 @@ function Cart() {
   const [fullscreen, setFullscreen] = useState(true);
 
   const handleClose = () => setShow(false);
-
 
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
@@ -86,22 +83,24 @@ function Cart() {
           <table className="table purchaseDetail">
             <thead>
               <tr className="titlePurchaseDetail spacing" scope="col">
-                <th><p>DETALLE DE COMPRA</p></th>
+                <th>
+                  <p>DETALLE DE COMPRA</p>
+                </th>
               </tr>
             </thead>
             <tbody className="textOrder">
               <tr>
                 <th>
-                   <p className="spacing">
-                  Cantidad de productos:
-                  {totalQuantity() !== 0 && totalQuantity()}
-                </p>
+                  <p className="spacing">
+                    Cantidad de productos:
+                    {totalQuantity() !== 0 && totalQuantity()}
+                  </p>
                 </th>
-               <th>
-               <p className="spacing">
-                  TOTAL: US${totalPrice() !== 0 && totalPrice()}
-                </p>
-               </th>
+                <th>
+                  <p className="spacing">
+                    TOTAL: US${totalPrice() !== 0 && totalPrice()}
+                  </p>
+                </th>
               </tr>
             </tbody>
           </table>
@@ -131,7 +130,6 @@ function Cart() {
           size={50}
         />
       </div>
-      {/* <button onClick={()=>addDocsFb()}> traer datos </button> */}
     </div>
   );
 }

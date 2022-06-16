@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "./HomeContent.css";
 
+import "./HomeContent.css";
 
 function HomeContent() {
   return (
@@ -13,7 +13,9 @@ function HomeContent() {
       <div className="item item6"></div>
       <div className="item item7"></div>
       <div className="item item8"></div>
-      <Link to= "/tienda" className="buttonHome"> ZETAELE ARTBOOKS - TIENDA</Link>
+      <Link to="/tienda" className="buttonHome">
+        ZETAELE ARTBOOKS - TIENDA
+      </Link>
     </div>
   );
 }

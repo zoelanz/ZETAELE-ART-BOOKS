@@ -1,7 +1,6 @@
 
-
-/* === === === === === === === === === === FONTS === === === === === === === === === === */
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Questrial&display=swap");
+
 @font-face {
   font-family: apercu;
   src: url(../fonts/ApercuPro-ExtraLight.ttf);
@@ -9,7 +8,6 @@
 
 html {
   scroll-behavior: smooth;
- 
 }
 
 *{

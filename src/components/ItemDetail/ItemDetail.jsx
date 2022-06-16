@@ -1,38 +1,28 @@
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
+
 import ItemCount from "../itemCount/itemCount";
 import InputCount from "../InputCount/InputCount";
 
 import "./ItemDetail.css";
 
-import { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
-
-
-function ItemDetail({ product, onAdd}) {
-  
+function ItemDetail({ product, onAdd }) {
   const [inputType, setInputType] = useState("ItemCount");
-
-
-  const {addToCart} = useContext(CartContext)
-
+  const { addToCart } = useContext(CartContext);
 
   function handleInputType() {
     setInputType("InputCount");
   }
 
-  function onAdd (qty) {
-    addToCart({...product,quantity:qty})
-    handleInputType()
-   
+  function onAdd(qty) {
+    addToCart({ ...product, quantity: qty });
+    handleInputType();
   }
 
   return (
     <div className="cardDetail">
       <div className="cardImg">
-      <img
-                className=" w-100"
-                src={product.img}
-                alt="First slide"
-              />   
+        <img className=" w-100" src={product.img} alt="First slide" />
       </div>
       <div className="container-fluid">
         <div className="wrapper row">

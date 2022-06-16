@@ -1,13 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Questrial&display=swap");
-
-
 img {
   max-width: 100%;
-
 }
 
 .preview {
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -81,7 +76,7 @@ img {
   border-radius: 6px;
 }
 
-.cardImg{
+.cardImg {
   width: 90%;
   /* background-color: darkslategrey; */
   display: flex;
@@ -93,9 +88,6 @@ img {
   width: 80% !important;
 }
 
-
-
-
 @media screen and (min-width: 997px) {
 
   .wrapper {
@@ -103,7 +95,6 @@ img {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-
   }
 }
 
@@ -141,14 +132,10 @@ img {
   text-align: center;
 }
 
-
-
 .checked,
 .price span {
   color: black;
 }
-
-
 
 .product-description {
   font-size: 15px;
@@ -185,8 +172,6 @@ img {
 }
 
 .add-to-cart,
-
-
 .not-available {
   text-align: center;
   line-height: 2em;
@@ -196,8 +181,6 @@ img {
   content: "\f00d";
   color: #fff;
 }
-
-
 
 .tooltip-inner {
   padding: 1.3em;
@@ -231,20 +214,20 @@ img {
   }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
 
-.product-description{
-  padding: 0 15px;
-}
+  .product-description {
+    padding: 0 15px;
+  }
 
-.product-title{
-  padding-top: 25px;
-  text-align: center;
-}
+  .product-title {
+    padding-top: 25px;
+    text-align: center;
+  }
 
-.stars{
-  text-align: center;
-}
+  .stars {
+    text-align: center;
+  }
 
   .cardDetail {
     margin-top: 20px;
@@ -257,8 +240,4 @@ img {
     line-height: 1.3em;
     width: 95%;
   }
-
-  
-  
-
 }

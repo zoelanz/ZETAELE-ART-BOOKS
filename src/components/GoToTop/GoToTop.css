@@ -9,6 +9,7 @@
     right: 25px;
     z-index: 20;
   }
+
   .icon-style{
     background-color:rgb(8, 8, 8);
     border-radius: 50%;
@@ -19,11 +20,13 @@
     animation: movebtn 3s ease-in-out infinite;
     transition: all .5s ease-in-out;
   }
+
   .icon-style:hover{
     animation: none;
     background: #fff;
     color: rgb(8, 8, 8);
   }
+  
   @keyframes movebtn {
     0%{
       transform: translateY(0px);

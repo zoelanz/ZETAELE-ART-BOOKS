@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
 import { useNavigate, useParams } from "react-router-dom";
-import "./ItemDetailContainer.css";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+
+import ItemDetail from "../ItemDetail/ItemDetail";
+
+import "./ItemDetailContainer.css";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
@@ -14,15 +16,14 @@ function ItemDetailContainer() {
 
   useEffect(() => {
     const db = getFirestore();
-
     const dbQuery = doc(db, "products", detailId);
 
     getDoc(dbQuery)
       .then((resp) => {
-        !resp.data() && productNotFound("Product Not Found",{ replace: true });
+        !resp.data() && productNotFound("Product Not Found", { replace: true });
         setProduct({ ...resp.data(), id: resp.id });
       })
-      .catch((err) => console.error(err))
+      .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, [productNotFound]);
 

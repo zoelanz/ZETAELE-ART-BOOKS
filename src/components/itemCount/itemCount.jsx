@@ -1,6 +1,7 @@
-import "./itemCount.css";
 import { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
+
+import "./itemCount.css";
 
 function ItemCount({ stock, initial, onAdd }) {
   const [count, setCount] = useState(initial);
@@ -20,21 +21,17 @@ function ItemCount({ stock, initial, onAdd }) {
   return (
     <div className="containerCounter1">
       <h3>STOCK DISPONIBLE: {stock}</h3>
-
       <div className="containerCounter">
         <button className="buttonCounter" onClick={counterMinus}>
           <FaMinus />
         </button>
-
         <p className="number">{count}</p>
-
         <button className="buttonCounter" onClick={counterPlus}>
           <FaPlus />
         </button>
       </div>
-
       <div className="containerButtonCart">
-        <button className="cta" onClick={()=>onAdd(count)} >
+        <button className="cta" onClick={() => onAdd(count)}>
           <span className="hover-underline-animation"> AÑADIR AL CARRITO </span>
           <svg
             id="arrow-horizontal"

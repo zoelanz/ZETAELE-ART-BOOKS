@@ -1,9 +1,5 @@
-
-   /* From uiverse.io by @mrhyddenn */
-   
-.containerLoader{
+ .containerLoader{
   height: 500px;
-
 }
 
 .loader {
@@ -62,9 +58,6 @@
   }
 }
 
-   
-  /* From uiverse.io by @Jedi-hongbin */
-
 .buttonBack {
     font-family: 'Questrial', sans-serif;
     font-size: 14px;
@@ -84,8 +77,6 @@
     text-decoration: none;
     color: black;
    } 
-   
-  
    
    .buttonBack:hover {
     transform: translateX(-4px);

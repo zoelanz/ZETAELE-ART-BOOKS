@@ -20,7 +20,6 @@
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
     text-align: center;
-
 }
 
 .imgCard {
@@ -28,7 +27,6 @@
     height: 291px;
     transition: all ease 0.8s;
     cursor: pointer;
-
 }
 
 .imgCard:hover {

@@ -1,7 +1,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Questrial&display=swap");
 
-
 h3{
     font-size: 15px;
     font-weight: bold;
@@ -9,7 +8,6 @@ h3{
 }
 .containerCounter1{
     font-family: 'Questrial', sans-serif;
-    /* background-color: #9F3E42; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,11 +15,9 @@ h3{
     width: 100%;
     padding: 20px 0 0 0 ;
     border-radius: 10px;
-
 }
 
 .containerCounter{
-
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -31,7 +27,6 @@ h3{
 }
 
 .containerButtonCart{
-    /* background-color: rgb(128, 36, 151); */
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -45,7 +40,6 @@ h3{
     font-size: 14px;
 }
 
-
 .number{
     display: flex;
     justify-content: center;
@@ -55,17 +49,12 @@ h3{
     height: 27px;
     font-weight: bold;
     margin-bottom: 0;
-
 }
 
 
-/* From uiverse.io by @alexmaracinaru */
 .cta {
     border: none;
     background: none;
-   
-    
-
    }
    
    .cta span {
@@ -102,7 +91,6 @@ h3{
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    /* height: 1.5px; */
     bottom: 0;
     left: 0;
     background-color: #000000;

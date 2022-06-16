@@ -9,10 +9,8 @@
 
 .containerLoader{
   height: 500px;
-
 }
 
-/* From uiverse.io by @mrhyddenn */
 .loader {
     background-color: rgb(255, 255, 255);
     position: absolute;
