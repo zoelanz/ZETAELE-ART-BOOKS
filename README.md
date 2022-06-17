@@ -6,7 +6,7 @@
 
 #### PREVIEW
 
-<img src="videos\ZETAELE-_-ARTBOOKS-Google-Chrome-2022-06-16-18-39-41.gif" alt="preview"></img>
+<img wid src="videos\ZETAELE-_-ARTBOOKS-Google-Chrome-2022-06-16-18-39-41.gif" alt="preview" width="500"></img>
 
 ---
 
@@ -16,7 +16,7 @@
 
 ---
 
-#### CATEGORÍAS
+#### PÁGINA
 
 #### La página agrupa los productos en base a las siguientes categorías:
 
@@ -64,7 +64,7 @@
 
 #### DEPLOY
 
-LINK
+https://zetaele-art-books.netlify.app/
 
 ---
 
